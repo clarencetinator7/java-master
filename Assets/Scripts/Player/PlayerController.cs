@@ -15,11 +15,13 @@ public class PlayerController : MonoBehaviour
   [SerializeField]
   float moveSpeed = 5f;
   Vector2 moveDirection = Vector2.zero;
+  float jumpForce = 5f;
 
   // Input Actions
   InputAction move;
-
+  InputAction jump;
   private void Awake()
+
   {
     playerControls = new PlayerInputActions();
   }
@@ -28,11 +30,15 @@ public class PlayerController : MonoBehaviour
   {
     move = playerControls.Player.Move;
     move.Enable();
-  }
 
+    jump = playerControls.Player.Jump;
+    jump.Enable();
+    jump.performed += onJump;
+  }
   private void OnDisable()
   {
     move.Disable();
+    jump.Disable();
   }
 
   private void Update()
@@ -42,8 +48,13 @@ public class PlayerController : MonoBehaviour
 
   private void FixedUpdate()
   {
-    rb.velocity = new Vector2(moveDirection.x * moveSpeed, transform.position.y);
+    rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y);
   }
 
+  private void onJump(InputAction.CallbackContext ctx)
+  {
+    rb.velocity = Vector2.up * jumpForce;
+    Debug.Log("Jump");
+  }
 
 }
