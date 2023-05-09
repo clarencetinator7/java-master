@@ -7,23 +7,24 @@ public class PlayerController : MonoBehaviour
 {
 
   // Components
-  [SerializeField]
-  Rigidbody2D rb;
+  [SerializeField] Rigidbody2D rb;
   PlayerInputActions playerControls;
+  Interactor interactor;
 
   // Stats
-  [SerializeField]
-  float moveSpeed = 5f;
+  [SerializeField] float moveSpeed = 5f;
   Vector2 moveDirection = Vector2.zero;
-  float jumpForce = 5f;
+  [SerializeField] float jumpForce = 5f;
 
   // Input Actions
   InputAction move;
   InputAction jump;
+  InputAction interact;
   private void Awake()
 
   {
     playerControls = new PlayerInputActions();
+    interactor = GetComponent<Interactor>();
   }
 
   private void OnEnable()
@@ -34,6 +35,11 @@ public class PlayerController : MonoBehaviour
     jump = playerControls.Player.Jump;
     jump.Enable();
     jump.performed += onJump;
+
+    interact = playerControls.Player.Interact;
+    interact.Enable();
+    interact.performed += onInteract;
+
   }
   private void OnDisable()
   {
@@ -57,4 +63,9 @@ public class PlayerController : MonoBehaviour
     Debug.Log("Jump");
   }
 
+  private void onInteract(InputAction.CallbackContext ctx)
+  {
+    Debug.Log("Interact");
+    interactor.Interact();
+  }
 }
