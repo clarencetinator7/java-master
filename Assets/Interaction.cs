@@ -13,5 +13,6 @@ public class Interaction : MonoBehaviour, IInteractable
   {
     Debug.Log("Interacting with " + gameObject.name);
     questionPanel.SetActive(true);
+    // Test change
   }
 }
