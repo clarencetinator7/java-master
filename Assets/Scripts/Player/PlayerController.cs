@@ -8,21 +8,27 @@ public class PlayerController : MonoBehaviour
 
   // Components
   [SerializeField] Rigidbody2D rb;
+  BetterJump betterJumpScript;
   PlayerInputActions playerControls;
   Interactor interactor;
+  [SerializeField] Transform groundCheck;
+  [SerializeField] LayerMask groundLayer;
+
 
   // Stats
   [SerializeField] float moveSpeed = 5f;
   Vector2 moveDirection = Vector2.zero;
   [SerializeField] float jumpForce = 5f;
+  bool jumpRequest;
+  bool isGrounded;
 
   // Input Actions
   InputAction move;
   InputAction jump;
   InputAction interact;
   private void Awake()
-
   {
+    betterJumpScript = GetComponent<BetterJump>();
     playerControls = new PlayerInputActions();
     interactor = GetComponent<Interactor>();
   }
@@ -34,7 +40,8 @@ public class PlayerController : MonoBehaviour
 
     jump = playerControls.Player.Jump;
     jump.Enable();
-    jump.performed += onJump;
+    jump.started += onJump;
+    jump.canceled += onJump;
 
     interact = playerControls.Player.Interact;
     interact.Enable();
@@ -55,12 +62,37 @@ public class PlayerController : MonoBehaviour
   private void FixedUpdate()
   {
     rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y);
+
+    if (jumpRequest)
+    {
+      // rb.velocity += Vector2.up * jumpForce;
+      rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+      jumpRequest = false;
+    }
+
   }
 
   private void onJump(InputAction.CallbackContext ctx)
   {
-    rb.velocity = Vector2.up * jumpForce;
-    Debug.Log("Jump");
+    if (ctx.phase == InputActionPhase.Started)
+    {
+      // rb.velocity = Vector2.up * jumpForce;
+      // jumpRequest = true;
+      // Check if grounded
+      isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+
+      if (isGrounded)
+      {
+        jumpRequest = true;
+        betterJumpScript.isStillJumping = true;
+      }
+      Debug.Log("Started");
+    }
+    else if (ctx.phase == InputActionPhase.Canceled)
+    {
+      betterJumpScript.isStillJumping = false;
+      Debug.Log("Canceled");
+    }
   }
 
   private void onInteract(InputAction.CallbackContext ctx)
