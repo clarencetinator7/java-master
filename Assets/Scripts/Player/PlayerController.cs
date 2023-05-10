@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
 
     if (jumpRequest)
     {
-      // rb.velocity += Vector2.up * jumpForce;
       rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
       jumpRequest = false;
     }
@@ -76,8 +75,6 @@ public class PlayerController : MonoBehaviour
   {
     if (ctx.phase == InputActionPhase.Started)
     {
-      // rb.velocity = Vector2.up * jumpForce;
-      // jumpRequest = true;
       // Check if grounded
       isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
 
@@ -86,18 +83,15 @@ public class PlayerController : MonoBehaviour
         jumpRequest = true;
         betterJumpScript.isStillJumping = true;
       }
-      Debug.Log("Started");
     }
     else if (ctx.phase == InputActionPhase.Canceled)
     {
       betterJumpScript.isStillJumping = false;
-      Debug.Log("Canceled");
     }
   }
 
   private void onInteract(InputAction.CallbackContext ctx)
   {
-    Debug.Log("Interact");
     interactor.Interact();
   }
 }

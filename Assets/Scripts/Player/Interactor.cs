@@ -35,10 +35,12 @@ public class Interactor : MonoBehaviour
     }
   }
 
-  private void OnDrawGizmos()
-  {
-    Gizmos.color = Color.red;
-    Gizmos.DrawWireSphere(interactionPoint.position, interactionRadius);
-  }
+
+  // SAVE: Interaction range
+  // private void OnDrawGizmos()
+  // {
+  //   Gizmos.color = Color.red;
+  //   Gizmos.DrawWireSphere(interactionPoint.position, interactionRadius);
+  // }
 
 }
