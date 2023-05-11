@@ -8,18 +8,14 @@ public class Interaction : MonoBehaviour, IInteractable
 {
 
   [SerializeField] GameObject questionManager;
-
-  [SerializeField] string questionText;
-  [SerializeField] string[] answers;
-  [SerializeField] int correctAnswerIndex;
-
+  [SerializeField] QuestionSO questionSO;
 
   public void Interact()
   {
     Debug.Log("Interacting with " + gameObject.name);
 
     // Create question
-    Question question = new Question(questionText, answers, correctAnswerIndex);
+    Question question = new Question(questionSO.questionText, questionSO.answerChoices, questionSO.correctAnswerIndex);
     questionManager.GetComponent<QuestionManager>().showQuestion(question);
 
   }
