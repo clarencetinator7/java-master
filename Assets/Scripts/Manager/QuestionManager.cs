@@ -43,7 +43,7 @@ public class QuestionManager : MonoBehaviour
     currentQuestion = question;
 
     // Set question text
-    questionPanel.transform.Find("QuestionText").GetComponent<TMPro.TextMeshProUGUI>().text = question.questionText;
+    questionText.text = question.questionText;
 
     // Set answer text
     answerButton1.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = question.answers[0];
@@ -69,6 +69,12 @@ public class QuestionManager : MonoBehaviour
       // Punish player
     }
     questionPanel.SetActive(false);
+  }
+
+  public void ClosePanel()
+  {
+    questionPanel.SetActive(false);
+    currentQuestion = null;
   }
 
 }
