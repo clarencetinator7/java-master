@@ -10,11 +10,19 @@ public class Question
   public string[] answers;
   public int correctAnswerIndex;
 
-  public Question(string questionText, string[] answers, int correctAnswerIndex)
+  // SAVE
+  // public Question(string questionText, string[] answers, int correctAnswerIndex)
+  // {
+  //   this.questionText = questionText;
+  //   this.answers = answers;
+  //   this.correctAnswerIndex = correctAnswerIndex;
+  // }
+
+  public Question(QuestionSO questionSO)
   {
-    this.questionText = questionText;
-    this.answers = answers;
-    this.correctAnswerIndex = correctAnswerIndex;
+    this.questionText = questionSO.questionText;
+    this.answers = questionSO.answerChoices;
+    this.correctAnswerIndex = questionSO.correctAnswerIndex;
   }
 }
 
