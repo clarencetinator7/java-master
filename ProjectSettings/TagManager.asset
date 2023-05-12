@@ -45,9 +45,12 @@ TagManager:
   - name: Background
     uniqueID: 544230853
     locked: 0
+  - name: Background Decorations
+    uniqueID: 685153449
+    locked: 0
   - name: Terrain
     uniqueID: 1366931845
     locked: 0
-  - name: Overlays
+  - name: Foreground Decorations
     uniqueID: 10252719
     locked: 0
