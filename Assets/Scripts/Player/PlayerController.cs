@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
   [SerializeField] Transform groundCheck;
   [SerializeField] LayerMask groundLayer;
   [SerializeField] Animator animator;
-  Collider2D collider;
+  Collider2D boxCollider;
 
   // Stats
   [SerializeField] float moveSpeed = 5f;
@@ -29,13 +29,16 @@ public class PlayerController : MonoBehaviour
   InputAction move;
   InputAction jump;
   InputAction interact;
+
+  public Collider2D Collider { get => boxCollider; set => boxCollider = value; }
+
   private void Awake()
   {
     betterJumpScript = GetComponent<BetterJump>();
     playerControls = new PlayerInputActions();
     interactor = GetComponent<Interactor>();
     animator = GetComponent<Animator>();
-    collider = GetComponent<Collider2D>();
+    Collider = GetComponent<Collider2D>();
   }
 
   private void OnEnable()
@@ -62,23 +65,16 @@ public class PlayerController : MonoBehaviour
   private void Update()
   {
     moveDirection = move.ReadValue<Vector2>();
-
-    // move using transform
-    // transform.position += new Vector3(moveDirection.x, 0, 0) * moveSpeed * Time.deltaTime;
-    // transform.Translate(new Vector3(moveDirection.x, 0, 0) * moveSpeed * Time.deltaTime);
-
     // Play animation
     animator.SetFloat("moveX", Mathf.Abs(moveDirection.x));
     // Flip sprite
     if (moveDirection.x > 0)
     {
-      // transform.localScale = new Vector3(1, 1, 1);
       GetComponent<SpriteRenderer>().flipX = false;
     }
     else if (moveDirection.x < 0)
     {
       GetComponent<SpriteRenderer>().flipX = true;
-      // transform.localScale = new Vector3(-1, 1, 1);
     }
   }
 
@@ -118,41 +114,32 @@ public class PlayerController : MonoBehaviour
 
   private void onInteract(InputAction.CallbackContext ctx)
   {
-    // interactor.Interact();
-    Knockback();
+    interactor.Interact();
   }
 
   public void Hurt(GameObject sender)
   {
 
-    // TODO: DO DAMAGE, PLAY HURT ANIMATION, KNOCKBACK
-
-    // Apply knockback
+    // TODO: DO DAMAGE 
 
     isHurt = true;
     animator.SetBool("isHurt", isHurt);
-    Knockback();
+    // Get direction from sender to player
+    Vector2 direction = new Vector2((transform.position.x - sender.transform.position.x), 0).normalized;
+    Knockback(direction);
     StartCoroutine(HurtTimer());
 
 
-    // Get direction from sender to player
-    // Vector2 direction = new Vector2((transform.position.x - sender.transform.position.x), 0).normalized;
   }
 
-  public void Knockback()
+  public void Knockback(Vector2 kbDir)
   {
     rb.velocity = Vector2.zero;
     rb.sharedMaterial.friction = 0.4f;
-    collider.enabled = false;
-    collider.enabled = true;
-    if (gameObject.GetComponent<SpriteRenderer>().flipX)
-    {
-      rb.AddForce((Vector2.right + Vector2.up) * kbForce, ForceMode2D.Impulse);
-    }
-    else
-    {
-      rb.AddForce((Vector2.left + Vector2.up) * kbForce, ForceMode2D.Impulse);
-    }
+    Collider.enabled = false;
+    Collider.enabled = true;
+
+    rb.AddForce(new Vector2(kbDir.x, 1f) * kbForce, ForceMode2D.Impulse);
   }
 
   IEnumerator HurtTimer()
@@ -160,22 +147,8 @@ public class PlayerController : MonoBehaviour
     yield return new WaitForSeconds(1f);
     isHurt = false;
     rb.sharedMaterial.friction = 0f;
-    collider.enabled = false;
-    collider.enabled = true;
+    Collider.enabled = false;
+    Collider.enabled = true;
     animator.SetBool("isHurt", isHurt);
   }
-
-
-
-
-
-  void OnDrawGizmos()
-  {
-    Gizmos.color = Color.red;
-    // Draw line
-    // Test object direction to world space
-  }
-
-
-
 }

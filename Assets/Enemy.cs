@@ -19,8 +19,15 @@ public class Enemy : MonoBehaviour
 
       // Get Player Controller
       PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
-      if (playerController != null)
+      // Get Player Rigid Body
+      Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
+      if (playerRb.velocity.y > 0.01f)
       {
+        // Damage this enemy
+      }
+      else
+      {
+        // Damage player
         playerController.Hurt(gameObject);
       }
 
