@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 756412986545983539}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +109,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c48e2f47eeecdeb4cad3fe90b86f654d, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b018a27aba458ec4589052962175087a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testObject: {fileID: 0}
   rb: {fileID: 756412986545983529}
   groundCheck: {fileID: 756412987244814016}
   groundLayer:
@@ -211,6 +212,7 @@ MonoBehaviour:
   animator: {fileID: 1769919000}
   moveSpeed: 5
   jumpForce: 5
+  kbForce: 5
 --- !u!114 &756412986545983540
 MonoBehaviour:
   m_ObjectHideFlags: 0
