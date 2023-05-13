@@ -30,9 +30,13 @@ public class ReadData : MonoBehaviour, IInteractable
   // Data panel coroutine will hide after 5 seconds
   IEnumerator HideDataPanel()
   {
+    // TODO: STOP PLAYER MOVEMENT WHILE PANEL IS SHOWN  
+
     yield return new WaitForSeconds(5);
     dataPanel.SetActive(false);
     Debug.Log("Data panel hidden");
+    // Destroy this gameObject
+    Destroy(gameObject);
   }
 
 }
