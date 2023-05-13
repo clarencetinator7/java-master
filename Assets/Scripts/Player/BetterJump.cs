@@ -13,10 +13,17 @@ public class BetterJump : MonoBehaviour
 
 
   Rigidbody2D rb;
+  Animator animator;
 
   public void Start()
   {
     rb = GetComponent<Rigidbody2D>();
+    animator = GetComponent<Animator>();
+  }
+
+  void Update()
+  {
+    animator.SetBool("isJumping", isStillJumping);
   }
 
   void FixedUpdate()

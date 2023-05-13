@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
   Interactor interactor;
   [SerializeField] Transform groundCheck;
   [SerializeField] LayerMask groundLayer;
-
+  [SerializeField] Animator animator;
 
   // Stats
   [SerializeField] float moveSpeed = 5f;
@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     betterJumpScript = GetComponent<BetterJump>();
     playerControls = new PlayerInputActions();
     interactor = GetComponent<Interactor>();
+    animator = GetComponent<Animator>();
   }
 
   private void OnEnable()
@@ -57,6 +58,17 @@ public class PlayerController : MonoBehaviour
   private void Update()
   {
     moveDirection = move.ReadValue<Vector2>();
+    // Play animation
+    animator.SetFloat("moveX", Mathf.Abs(moveDirection.x));
+    // Flip sprite
+    if (moveDirection.x > 0)
+    {
+      transform.localScale = new Vector3(1, 1, 1);
+    }
+    else if (moveDirection.x < 0)
+    {
+      transform.localScale = new Vector3(-1, 1, 1);
+    }
   }
 
   private void FixedUpdate()
