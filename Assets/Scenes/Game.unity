@@ -3443,6 +3443,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 174435950}
     m_Modifications:
     - target: {fileID: 6837422808858614210, guid: 7fb06f2cdc52217459c67cca57f268c8, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 995480845}
+    - target: {fileID: 6837422808858614210, guid: 7fb06f2cdc52217459c67cca57f268c8, type: 3}
       propertyPath: questionManager
       value: 
       objectReference: {fileID: 970645561}
@@ -4397,6 +4401,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &995480845 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 995480845, guid: 7fb06f2cdc52217459c67cca57f268c8, type: 3}
+  m_PrefabInstance: {fileID: 297994645}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1041492441
 GameObject:
   m_ObjectHideFlags: 0
@@ -15711,6 +15720,18 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4359733949901229200, guid: 2a6316baeaf330f49853b8bd77bc2ef5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0210725
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359733949901229200, guid: 2a6316baeaf330f49853b8bd77bc2ef5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5127
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359733949901229200, guid: 2a6316baeaf330f49853b8bd77bc2ef5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5127
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359733949901229200, guid: 2a6316baeaf330f49853b8bd77bc2ef5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.67
       objectReference: {fileID: 0}
@@ -15749,6 +15770,18 @@ PrefabInstance:
     - target: {fileID: 4359733949901229200, guid: 2a6316baeaf330f49853b8bd77bc2ef5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359733949901229201, guid: 2a6316baeaf330f49853b8bd77bc2ef5, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359733949901229201, guid: 2a6316baeaf330f49853b8bd77bc2ef5, type: 3}
+      propertyPath: m_Color.g
+      value: 0.94274926
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359733949901229201, guid: 2a6316baeaf330f49853b8bd77bc2ef5, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4359733949901229203, guid: 2a6316baeaf330f49853b8bd77bc2ef5, type: 3}
       propertyPath: m_Name

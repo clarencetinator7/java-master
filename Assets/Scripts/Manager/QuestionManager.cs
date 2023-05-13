@@ -31,6 +31,7 @@ public class QuestionManager : MonoBehaviour
 
   Question currentQuestion;
   int correctAnswerIndex;
+  static GameObject currentStation;
 
   [SerializeField] GameObject questionPanel;
   [SerializeField] TextMeshProUGUI questionText;
@@ -38,10 +39,10 @@ public class QuestionManager : MonoBehaviour
   [SerializeField] Button answerButton2;
   [SerializeField] Button answerButton3;
 
-  public void showQuestion(Question question)
+  public void showQuestion(Question question, GameObject quizStation)
   {
     currentQuestion = question;
-
+    currentStation = quizStation;
     // Set question text
     questionText.text = question.questionText;
 
@@ -54,27 +55,43 @@ public class QuestionManager : MonoBehaviour
     correctAnswerIndex = question.correctAnswerIndex;
 
     questionPanel.SetActive(true);
-  }
 
+    // Hide question panel after 5 seconds
+    StartCoroutine(questionTimer());
+
+  }
   public void AnswerQuestion(int answerIndex)
   {
     if (answerIndex == correctAnswerIndex)
     {
       Debug.Log("Correct!");
-      // Reward player
+      // TODO: Reward player
+
+      // Play close animation
+      currentStation.GetComponent<Interaction>().closeStation();
+
     }
     else
     {
       Debug.Log("Wrong!");
-      // Punish player
+      // TODO: Punish player
     }
-    questionPanel.SetActive(false);
+    ClosePanel();
   }
 
   public void ClosePanel()
   {
     questionPanel.SetActive(false);
     currentQuestion = null;
+    currentStation = null;
   }
 
+  IEnumerator questionTimer()
+  {
+    Debug.Log("Question Timer");
+    yield return new WaitForSeconds(7);
+    questionPanel.SetActive(false);
+    ClosePanel();
+    Debug.Log("Question Default");
+  }
 }
