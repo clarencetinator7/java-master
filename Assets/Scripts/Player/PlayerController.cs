@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
   [SerializeField] float jumpForce = 5f;
   bool jumpRequest;
   bool isGrounded;
-  bool isHurt = false;
+  public bool isHurt = false;
   [SerializeField] float kbForce = 5f;
 
   // Input Actions
@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour
 
   private void onInteract(InputAction.CallbackContext ctx)
   {
+    switchActMap("disable");
     interactor.Interact();
   }
 
@@ -129,7 +130,24 @@ public class PlayerController : MonoBehaviour
     Knockback(direction);
     StartCoroutine(HurtTimer());
 
+  }
 
+  public void switchActMap(string mode)
+  {
+    if (mode == "enable")
+    {
+      move.Enable();
+      jump.Enable();
+      // interact.Enable();
+
+      // COULD ALSO SWITCH TO UI MAP
+    }
+    else if (mode == "disable")
+    {
+      move.Disable();
+      jump.Disable();
+      // interact.Disable();
+    }
   }
 
   public void Knockback(Vector2 kbDir)

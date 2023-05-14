@@ -9,6 +9,13 @@ public class ReadData : MonoBehaviour, IInteractable
 
   [SerializeField] GameObject dataPanel;
 
+  PlayerController pController;
+
+  public void Start()
+  {
+    pController = GameObject.Find("Player").GetComponent<PlayerController>();
+  }
+
   public void Interact()
   {
     Debug.Log("Interacting with " + gameObject.name);
@@ -30,11 +37,12 @@ public class ReadData : MonoBehaviour, IInteractable
   // Data panel coroutine will hide after 5 seconds
   IEnumerator HideDataPanel()
   {
-    // TODO: STOP PLAYER MOVEMENT WHILE PANEL IS SHOWN  
-
+    // STOP PLAYER MOVEMENT WHILE PANEL IS SHOWN  
+    pController.switchActMap("disable");
     yield return new WaitForSeconds(5);
     dataPanel.SetActive(false);
-    Debug.Log("Data panel hidden");
+    // Enable player movement
+    pController.switchActMap("enable");
     // Destroy this gameObject
     Destroy(gameObject);
   }

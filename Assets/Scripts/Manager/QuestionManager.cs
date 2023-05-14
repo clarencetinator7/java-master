@@ -39,10 +39,20 @@ public class QuestionManager : MonoBehaviour
   [SerializeField] Button answerButton2;
   [SerializeField] Button answerButton3;
 
+  PlayerController pController;
+
+  private void Start()
+  {
+    pController = GameObject.Find("Player").GetComponent<PlayerController>();
+  }
+
   public void showQuestion(Question question, GameObject quizStation)
   {
     currentQuestion = question;
     currentStation = quizStation;
+
+    pController.switchActMap("disable");
+
     // Set question text
     questionText.text = question.questionText;
 
@@ -76,7 +86,10 @@ public class QuestionManager : MonoBehaviour
       Debug.Log("Wrong!");
       // TODO: Punish player
     }
+    //STOP ALL COROUTINES
+    StopAllCoroutines();
     ClosePanel();
+    pController.switchActMap("enable");
   }
 
   public void ClosePanel()
@@ -91,7 +104,8 @@ public class QuestionManager : MonoBehaviour
     Debug.Log("Question Timer");
     yield return new WaitForSeconds(7);
     questionPanel.SetActive(false);
+    pController.switchActMap("enable");
     ClosePanel();
-    Debug.Log("Question Default");
+
   }
 }
