@@ -118,19 +118,7 @@ public class PlayerController : MonoBehaviour
     interactor.Interact();
   }
 
-  public void Hurt(GameObject sender)
-  {
 
-    // TODO: DO DAMAGE 
-
-    isHurt = true;
-    animator.SetBool("isHurt", isHurt);
-    // Get direction from sender to player
-    Vector2 direction = new Vector2((transform.position.x - sender.transform.position.x), 0).normalized;
-    Knockback(direction);
-    StartCoroutine(HurtTimer());
-
-  }
 
   public void switchActMap(string mode)
   {
@@ -150,14 +138,16 @@ public class PlayerController : MonoBehaviour
     }
   }
 
-  public void Knockback(Vector2 kbDir)
+  public void Hurt(GameObject sender)
   {
-    rb.velocity = Vector2.zero;
-    rb.sharedMaterial.friction = 0.4f;
-    Collider.enabled = false;
-    Collider.enabled = true;
-
-    rb.AddForce(new Vector2(kbDir.x, 1f) * kbForce, ForceMode2D.Impulse);
+    isHurt = true;
+    animator.SetBool("isHurt", isHurt);
+    // Reduce life
+    GameManager.instance.ReduceLife();
+    // Get direction from sender to player
+    Vector2 direction = new Vector2((transform.position.x - sender.transform.position.x), 0).normalized;
+    Knockback(direction);
+    StartCoroutine(HurtTimer());
   }
 
   IEnumerator HurtTimer()
@@ -169,4 +159,15 @@ public class PlayerController : MonoBehaviour
     Collider.enabled = true;
     animator.SetBool("isHurt", isHurt);
   }
+
+  public void Knockback(Vector2 kbDir)
+  {
+    rb.velocity = Vector2.zero;
+    rb.sharedMaterial.friction = 0.4f;
+    Collider.enabled = false;
+    Collider.enabled = true;
+
+    rb.AddForce(new Vector2(kbDir.x, 1f) * kbForce, ForceMode2D.Impulse);
+  }
+
 }

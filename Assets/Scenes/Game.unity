@@ -3770,6 +3770,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ff333e7f12fec6409245f9f842f2636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeCount: 5
+  chipsCollected: 0
 --- !u!1 &325346595
 GameObject:
   m_ObjectHideFlags: 0
@@ -4467,6 +4469,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &793896673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 756412986545983531, guid: 249c32c263d04ad44abdca2449159d8c, type: 3}
+  m_PrefabInstance: {fileID: 1367388031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &809590686
 GameObject:
   m_ObjectHideFlags: 0
@@ -15917,6 +15924,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 756412986545983543, guid: 249c32c263d04ad44abdca2449159d8c, type: 3}
   m_PrefabInstance: {fileID: 1367388031}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1769918993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793896673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 527775f3598153a41ad3615fd1cdf9a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1804441733
 GameObject:
   m_ObjectHideFlags: 0
