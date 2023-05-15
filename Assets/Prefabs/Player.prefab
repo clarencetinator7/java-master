@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 756412986545983541}
   - component: {fileID: 756412986545983540}
   - component: {fileID: 756412986545983539}
+  - component: {fileID: 1769918993}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -203,7 +204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b018a27aba458ec4589052962175087a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testObject: {fileID: 0}
   rb: {fileID: 756412986545983529}
   groundCheck: {fileID: 756412987244814016}
   groundLayer:
@@ -212,6 +212,7 @@ MonoBehaviour:
   animator: {fileID: 1769919000}
   moveSpeed: 5
   jumpForce: 5
+  isHurt: 0
   kbForce: 5
 --- !u!114 &756412986545983540
 MonoBehaviour:
@@ -242,6 +243,18 @@ MonoBehaviour:
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
   isStillJumping: 0
+--- !u!114 &1769918993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756412986545983531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 527775f3598153a41ad3615fd1cdf9a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &756412987244814017
 GameObject:
   m_ObjectHideFlags: 0

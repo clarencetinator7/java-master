@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactable
   - Enemy
+  - Obstacles
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - UI
   - Ground
   - Enemy
-  - 
+  - Obstacles
   - 
   - 
   - 
