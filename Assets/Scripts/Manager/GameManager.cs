@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
   public GameObject activePlayerInstance;
 
   Transform playerSpawnPoint;
+  public Transform activeCheckpoint;
 
   void Awake()
   {
@@ -58,7 +59,8 @@ public class GameManager : MonoBehaviour
   {
     if (Keyboard.current.spaceKey.wasPressedThisFrame)
     {
-      SceneManager.LoadScene("Game");
+      // SceneManager.LoadScene("Game");
+      playerDie();
     }
   }
 
@@ -76,19 +78,6 @@ public class GameManager : MonoBehaviour
 
   public void SpawnPlayer()
   {
-    // if (activePlayerInstance == null)
-    // {
-    //   activePlayerInstance = Instantiate(playerPref, playerSpawnPoint.position, Quaternion.identity);
-    //   // Follow cinemachine at activePlayerInstance
-    // }
-    // else if (activePlayerInstance != null)
-    // {
-    //   activePlayerInstance.transform.position = playerSpawnPoint.position;
-    // }
-
-    // if(playerSpawnPoint == null)
-    //   playerSpawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
-
     activePlayerInstance = Instantiate(playerPref, playerSpawnPoint.position, Quaternion.identity);
 
     GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = activePlayerInstance.transform;
@@ -104,6 +93,31 @@ public class GameManager : MonoBehaviour
     {
       activePlayerInstance.GetComponent<PlayerController>().switchActMap("disable");
     }
+  }
+
+  public void playerDie()
+  {
+    Destroy(activePlayerInstance);
+    // Play death animation
+    // Play death sound
+    // Play death particle
+    respawnPlayer();
+  }
+
+  void respawnPlayer()
+  {
+    if (activeCheckpoint != null)
+    {
+      activePlayerInstance = Instantiate(playerPref, activeCheckpoint.position, Quaternion.identity);
+      GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = activePlayerInstance.transform;
+    }
+    else
+    {
+      activePlayerInstance = Instantiate(playerPref, playerSpawnPoint.position, Quaternion.identity);
+
+      GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = activePlayerInstance.transform;
+    }
+
   }
 
 }

@@ -3425,6 +3425,7 @@ MonoBehaviour:
   chipsCollected: 0
   playerPref: {fileID: 756412986545983531, guid: 249c32c263d04ad44abdca2449159d8c, type: 3}
   activePlayerInstance: {fileID: 0}
+  activeCheckpoint: {fileID: 0}
 --- !u!1 &424040177
 GameObject:
   m_ObjectHideFlags: 0
@@ -3735,7 +3736,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: f2ff1251818d6c14596fa35862e199ba, type: 2}
     - target: {fileID: 6837422808858614211, guid: 7fb06f2cdc52217459c67cca57f268c8, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6837422808858614211, guid: 7fb06f2cdc52217459c67cca57f268c8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4029,7 +4030,7 @@ Transform:
   - {fileID: 182128118}
   - {fileID: 7429461953782684884}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1527300761
 MonoBehaviour:

@@ -9,4 +9,9 @@ public class Player : MonoBehaviour
     GameManager.instance.activePlayerInstance = gameObject;
     DontDestroyOnLoad(gameObject);
   }
+
+  private void Die()
+  {
+
+  }
 }
