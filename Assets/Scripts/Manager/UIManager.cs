@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
 
 
   [SerializeField] GameObject dataPanel;
-  PlayerController pController;
+  [SerializeField] GameObject controlsPanel;
 
   void Awake()
   {
@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
 
   void Start()
   {
-    pController = GameObject.Find("Player").GetComponent<PlayerController>();
+
   }
   void MakeSingleton()
 
@@ -46,15 +46,45 @@ public class UIManager : MonoBehaviour
   // Data panel coroutine will hide after 5 seconds
   IEnumerator ToggleDataPanel(GameObject chipInstance)
   {
+    hideControlPanel();
     dataPanel.SetActive(true);
     // STOP PLAYER MOVEMENT WHILE PANEL IS SHOWN  
-    pController.switchActMap("disable");
+    // pController.switchActMap("disable");
     yield return new WaitForSeconds(5);
     dataPanel.SetActive(false);
+    showControlPanel();
     // Enable player movement
-    pController.switchActMap("enable");
+    // pController.switchActMap("enable");
     // Destroy this gameObject
     Destroy(chipInstance);
+  }
+
+  public void showControlPanel()
+  {
+    StartCoroutine(showControlPanelDelay());
+  }
+
+  // <summary>
+  // Delay due to a bug where it would throw an error.
+  // More details here: 
+  // https://stackoverflow.com/questions/68604217/unity-new-input-system-touch-menu-error
+  // </summary>
+
+  IEnumerator showControlPanelDelay()
+  {
+    yield return new WaitForSeconds(1);
+    controlsPanel.SetActive(true);
+  }
+
+  public void hideControlPanel()
+  {
+    StartCoroutine(hideControlPanelDelay());
+  }
+
+  IEnumerator hideControlPanelDelay()
+  {
+    yield return new WaitForSeconds(1);
+    controlsPanel.SetActive(false);
   }
 
 }

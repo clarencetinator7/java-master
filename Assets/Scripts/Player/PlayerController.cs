@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour
     animator = GetComponent<Animator>();
     Collider = GetComponent<Collider2D>();
   }
-
   private void OnEnable()
   {
     move = playerControls.Player.Move;
@@ -56,10 +55,14 @@ public class PlayerController : MonoBehaviour
     interact.performed += onInteract;
 
   }
-  private void OnDisable()
+  private void OnDestroy()
   {
     move.Disable();
+    // jump.started -= onJump;
+    // jump.canceled -= onJump;
     jump.Disable();
+    // interact.performed -= onInteract;
+    interact.Disable();
   }
 
   private void Update()
@@ -126,6 +129,7 @@ public class PlayerController : MonoBehaviour
       move.Enable();
       jump.Enable();
       // interact.Enable();
+      Debug.Log("Enabled player controls");
 
       // COULD ALSO SWITCH TO UI MAP
     }
@@ -134,6 +138,7 @@ public class PlayerController : MonoBehaviour
       move.Disable();
       jump.Disable();
       // interact.Disable();
+      Debug.Log("Disabled player controls");
     }
   }
 

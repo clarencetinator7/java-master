@@ -48,11 +48,6 @@ public class QuestionManager : MonoBehaviour
     MakeSingleton();
   }
 
-  private void Start()
-  {
-    pController = GameObject.Find("Player").GetComponent<PlayerController>();
-  }
-
   private void MakeSingleton()
   {
     if (instance != null)
@@ -71,7 +66,8 @@ public class QuestionManager : MonoBehaviour
     currentQuestion = question;
     currentStation = quizStation;
 
-    pController.switchActMap("disable");
+    GameManager.instance.switchActionMap("disable");
+    UIManager.instance.hideControlPanel();
 
     // Set question text
     questionText.text = question.questionText;
@@ -110,7 +106,8 @@ public class QuestionManager : MonoBehaviour
     StopAllCoroutines();
     ClosePanel();
     // Enable player movement
-    pController.switchActMap("enable");
+    GameManager.instance.switchActionMap("enable");
+    UIManager.instance.showControlPanel();
   }
 
 
@@ -121,7 +118,7 @@ public class QuestionManager : MonoBehaviour
     yield return new WaitForSeconds(10);
     questionPanel.SetActive(false);
     // Enable player movement
-    pController.switchActMap("enable");
+    GameManager.instance.switchActionMap("enable");
     ClosePanel();
 
   }
@@ -129,6 +126,7 @@ public class QuestionManager : MonoBehaviour
   public void ClosePanel()
   {
     questionPanel.SetActive(false);
+    UIManager.instance.showControlPanel();
     currentQuestion = null;
     currentStation = null;
   }

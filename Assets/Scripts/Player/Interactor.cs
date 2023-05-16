@@ -21,6 +21,8 @@ public class Interactor : MonoBehaviour
   {
     Collider2D[] colliders = Physics2D.OverlapCircleAll(interactionPoint.position, interactionRadius);
 
+    Debug.Log("Interacting with " + colliders);
+
     foreach (Collider2D collider in colliders)
     {
       // IInteractable interactable = collider.GetComponent<IInteractable>();

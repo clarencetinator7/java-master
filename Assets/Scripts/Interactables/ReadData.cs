@@ -9,11 +9,8 @@ public class ReadData : MonoBehaviour, IInteractable
 
   // [SerializeField] GameObject dataPanel;
 
-  PlayerController pController;
-
   public void Start()
   {
-    pController = GameObject.Find("Player").GetComponent<PlayerController>();
     if (chipData.Trim() == "")
     {
       chipData = "This chip has no data: " + gameObject.name;

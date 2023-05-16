@@ -7,6 +7,7 @@ TagManager:
   - Interactable
   - Enemy
   - Obstacles
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
