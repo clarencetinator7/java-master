@@ -34,6 +34,7 @@ public class QuestionManager : MonoBehaviour
   Question currentQuestion;
   int correctAnswerIndex;
   static GameObject currentStation;
+  int currentStationAttempts = 0;
 
   [SerializeField] GameObject questionPanel;
   [SerializeField] TextMeshProUGUI questionText;
@@ -46,6 +47,9 @@ public class QuestionManager : MonoBehaviour
   private void Awake()
   {
     MakeSingleton();
+
+    // ((Number of Attempts - 1) / (3 - 1)) * (1000 - ((Time Answered * 1000) / 10)) + 100
+
   }
 
   private void MakeSingleton()
@@ -65,6 +69,14 @@ public class QuestionManager : MonoBehaviour
   {
     currentQuestion = question;
     currentStation = quizStation;
+    currentStationAttempts = currentStation.GetComponent<Interaction>().attempts;
+
+    // if (currentStationAttempts >= 3)
+    // {
+    //   Debug.Log("No more attempts");
+    //   currentStation.GetComponent<Interaction>().closeStation();
+    //   return;
+    // }
 
     GameManager.instance.switchActionMap("disable");
     UIManager.instance.hideControlPanel();
@@ -95,19 +107,24 @@ public class QuestionManager : MonoBehaviour
 
       // Play close animation
       currentStation.GetComponent<Interaction>().closeStation();
-
+      // Count as completed
+      GameManager.instance.totalDataStationAnswered++;
+      // Count as correct answer
+      GameManager.instance.correctAnswerCount++;
+      currentStation.GetComponent<Interaction>().attempts++;
+      ClosePanel();
+      return;
     }
     else
     {
       Debug.Log("Wrong!");
+      // Count as completed
+      // GameManager.instance.totalDataStationAnswered++;
       // TODO: Punish player
     }
     //STOP ALL COROUTINES
-    StopAllCoroutines();
+    increaseAttempts();
     ClosePanel();
-    // Enable player movement
-    GameManager.instance.switchActionMap("enable");
-    UIManager.instance.showControlPanel();
   }
 
 
@@ -117,18 +134,32 @@ public class QuestionManager : MonoBehaviour
     Debug.Log("Question Timer");
     yield return new WaitForSeconds(10);
     questionPanel.SetActive(false);
-    // Enable player movement
-    GameManager.instance.switchActionMap("enable");
     ClosePanel();
-
   }
 
   public void ClosePanel()
   {
+    StopAllCoroutines();
     questionPanel.SetActive(false);
     UIManager.instance.showControlPanel();
+    GameManager.instance.switchActionMap("enable");
     currentQuestion = null;
     currentStation = null;
+    currentStationAttempts = 0;
+  }
+
+  public void increaseAttempts()
+  {
+    currentStationAttempts++;
+    currentStation.GetComponent<Interaction>().attempts = currentStationAttempts;
+    Debug.Log("Attempts: " + currentStationAttempts);
+    if (currentStationAttempts >= 3)
+    {
+      currentStation.GetComponent<Interaction>().closeStation();
+      GameManager.instance.totalDataStationAnswered++;
+      return;
+    }
+    // ClosePanel();
   }
 
 }

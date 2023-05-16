@@ -8,6 +8,14 @@ public class GameManager : MonoBehaviour
 
   public static GameManager instance;
 
+  // Level Info
+  // int currentLevel = 0;
+  // int totalLevels = 3;
+  public int totalDataStation = 0;
+  public int totalDataStationAnswered = 0;
+  public int correctAnswerCount = 0;
+
+
 
   // Player Stats
   // Cognitive Integrity is the player's health
@@ -57,11 +65,21 @@ public class GameManager : MonoBehaviour
 
   void Update()
   {
+    // FOR TESTING PURPOSE
     if (Keyboard.current.spaceKey.wasPressedThisFrame)
     {
       // SceneManager.LoadScene("Game");
-      playerDie();
+      // resetLevelData();
+
+      // playerDie();
     }
+  }
+
+  public void resetLevelData()
+  {
+    totalDataStation = 0;
+    totalDataStationAnswered = 0;
+    correctAnswerCount = 0;
   }
 
   public void ReduceLife()
@@ -118,6 +136,12 @@ public class GameManager : MonoBehaviour
       GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = activePlayerInstance.transform;
     }
 
+  }
+
+  public void levelEnd()
+  {
+    // Move to Next Level Logic here
+    Debug.Log("Level End");
   }
 
 }

@@ -4,14 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// FOR DATA STATIONS
 public class Interaction : MonoBehaviour, IInteractable
 {
   [SerializeField] QuestionSO questionSO;
   [SerializeField] Animator animator;
+  public int attempts = 0;
   public bool isStationOpen = true;
 
   public void Start()
   {
+    GameManager.instance.totalDataStation++;
     if (animator == null)
     {
       animator = GetComponent<Animator>();
@@ -22,7 +25,6 @@ public class Interaction : MonoBehaviour, IInteractable
       closeStation();
       Debug.Log("No questionSO found on " + gameObject.name);
     }
-
   }
 
   public void Interact(GameObject interactor)
