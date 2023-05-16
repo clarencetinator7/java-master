@@ -29,6 +29,8 @@ public class Question
 public class QuestionManager : MonoBehaviour
 {
 
+  public static QuestionManager instance;
+
   Question currentQuestion;
   int correctAnswerIndex;
   static GameObject currentStation;
@@ -41,9 +43,27 @@ public class QuestionManager : MonoBehaviour
 
   PlayerController pController;
 
+  private void Awake()
+  {
+    MakeSingleton();
+  }
+
   private void Start()
   {
     pController = GameObject.Find("Player").GetComponent<PlayerController>();
+  }
+
+  private void MakeSingleton()
+  {
+    if (instance != null)
+    {
+      Destroy(gameObject);
+    }
+    else
+    {
+      instance = this;
+      // DontDestroyOnLoad(gameObject);
+    }
   }
 
   public void showQuestion(Question question, GameObject quizStation)
@@ -93,12 +113,7 @@ public class QuestionManager : MonoBehaviour
     pController.switchActMap("enable");
   }
 
-  public void ClosePanel()
-  {
-    questionPanel.SetActive(false);
-    currentQuestion = null;
-    currentStation = null;
-  }
+
 
   IEnumerator questionTimer()
   {
@@ -110,4 +125,12 @@ public class QuestionManager : MonoBehaviour
     ClosePanel();
 
   }
+
+  public void ClosePanel()
+  {
+    questionPanel.SetActive(false);
+    currentQuestion = null;
+    currentStation = null;
+  }
+
 }

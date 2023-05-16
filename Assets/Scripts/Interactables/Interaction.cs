@@ -6,7 +6,6 @@ using TMPro;
 
 public class Interaction : MonoBehaviour, IInteractable
 {
-  [SerializeField] GameObject questionManager;
   [SerializeField] QuestionSO questionSO;
   [SerializeField] Animator animator;
   public bool isStationOpen = true;
@@ -17,6 +16,13 @@ public class Interaction : MonoBehaviour, IInteractable
     {
       animator = GetComponent<Animator>();
     }
+
+    if (questionSO == null)
+    {
+      closeStation();
+      Debug.Log("No questionSO found on " + gameObject.name);
+    }
+
   }
 
   public void Interact(GameObject interactor)
@@ -27,8 +33,7 @@ public class Interaction : MonoBehaviour, IInteractable
       Debug.Log("Interacting with " + gameObject.name);
       // Create question
       Question question = new Question(questionSO);
-      // Show question ui
-      questionManager.GetComponent<QuestionManager>().showQuestion(question, gameObject);
+      QuestionManager.instance.showQuestion(question, gameObject);
     }
   }
 
