@@ -89,6 +89,7 @@ public class QuestionManager : MonoBehaviour
     //STOP ALL COROUTINES
     StopAllCoroutines();
     ClosePanel();
+    // Enable player movement
     pController.switchActMap("enable");
   }
 
@@ -102,8 +103,9 @@ public class QuestionManager : MonoBehaviour
   IEnumerator questionTimer()
   {
     Debug.Log("Question Timer");
-    yield return new WaitForSeconds(7);
+    yield return new WaitForSeconds(10);
     questionPanel.SetActive(false);
+    // Enable player movement
     pController.switchActMap("enable");
     ClosePanel();
 

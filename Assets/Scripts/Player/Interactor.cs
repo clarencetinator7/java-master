@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 interface IInteractable
 {
-  public void Interact();
+  public void Interact(GameObject interactor);
 }
 
 public class Interactor : MonoBehaviour
@@ -30,7 +30,8 @@ public class Interactor : MonoBehaviour
       // }
       if (collider.CompareTag("Interactable"))
       {
-        collider.GetComponent<IInteractable>().Interact();
+        // GetComponent<PlayerController>().switchActMap("disable");
+        collider.GetComponent<IInteractable>().Interact(gameObject);
       }
     }
   }

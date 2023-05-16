@@ -19,10 +19,11 @@ public class Interaction : MonoBehaviour, IInteractable
     }
   }
 
-  public void Interact()
+  public void Interact(GameObject interactor)
   {
     if (isStationOpen)
     {
+      interactor.GetComponent<PlayerController>().switchActMap("disable");
       Debug.Log("Interacting with " + gameObject.name);
       // Create question
       Question question = new Question(questionSO);

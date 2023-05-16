@@ -16,7 +16,7 @@ public class ReadData : MonoBehaviour, IInteractable
     pController = GameObject.Find("Player").GetComponent<PlayerController>();
   }
 
-  public void Interact()
+  public void Interact(GameObject interactor)
   {
     Debug.Log("Interacting with " + gameObject.name);
     // Read data from chip

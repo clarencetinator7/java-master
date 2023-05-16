@@ -114,7 +114,6 @@ public class PlayerController : MonoBehaviour
 
   private void onInteract(InputAction.CallbackContext ctx)
   {
-    switchActMap("disable");
     interactor.Interact();
   }
 
