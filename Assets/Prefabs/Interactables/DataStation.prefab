@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6837422808858614210}
   - component: {fileID: 995480845}
   m_Layer: 0
-  m_Name: InteractableObj
+  m_Name: DataStation
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,7 +126,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionManager: {fileID: 0}
-  questionSO: {fileID: 11400000, guid: f2ff1251818d6c14596fa35862e199ba, type: 2}
+  questionSO: {fileID: 0}
+  animator: {fileID: 995480845}
+  isStationOpen: 1
 --- !u!95 &995480845
 Animator:
   serializedVersion: 5
