@@ -211,7 +211,7 @@ MonoBehaviour:
     m_Bits: 64
   animator: {fileID: 1769919000}
   moveSpeed: 5
-  jumpForce: 5
+  jumpForce: 7
   isHurt: 0
   kbForce: 5
 --- !u!114 &756412986545983540
@@ -240,8 +240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b8e3eb2159e554db5ecf29d29ece07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallMultiplier: 2.5
-  lowJumpMultiplier: 2
+  fallMultiplier: 3
+  lowJumpMultiplier: 4
   isStillJumping: 0
 --- !u!114 &1769918993
 MonoBehaviour:
