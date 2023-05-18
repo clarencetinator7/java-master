@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class UIManager : MonoBehaviour
 
 
   [SerializeField] GameObject dataPanel;
+  [SerializeField] TextMeshProUGUI dataText;
   [SerializeField] GameObject controlsPanel;
 
   void Awake()
@@ -37,7 +39,8 @@ public class UIManager : MonoBehaviour
   public void readData(string data, GameObject chipInstance)
   {
     // Select the text from the child of dataPanel
-    dataPanel.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = data;
+    // dataPanel.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = data;
+    dataText.text = data;
 
     // Hide data panel after 5 seconds
     StartCoroutine(ToggleDataPanel(chipInstance));
