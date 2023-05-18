@@ -41,25 +41,13 @@ public class UIManager : MonoBehaviour
     // Select the text from the child of dataPanel
     // dataPanel.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = data;
     dataText.text = data;
-
-    // Hide data panel after 5 seconds
-    StartCoroutine(ToggleDataPanel(chipInstance));
+    dataPanel.SetActive(true);
+    Destroy(chipInstance);
   }
 
-  // Data panel coroutine will hide after 5 seconds
-  IEnumerator ToggleDataPanel(GameObject chipInstance)
+  public void hideDataPanel()
   {
-    hideControlPanel();
-    dataPanel.SetActive(true);
-    // STOP PLAYER MOVEMENT WHILE PANEL IS SHOWN  
-    // pController.switchActMap("disable");
-    yield return new WaitForSeconds(5);
     dataPanel.SetActive(false);
-    showControlPanel();
-    // Enable player movement
-    // pController.switchActMap("enable");
-    // Destroy this gameObject
-    Destroy(chipInstance);
   }
 
   public void showControlPanel()
@@ -75,7 +63,7 @@ public class UIManager : MonoBehaviour
 
   IEnumerator showControlPanelDelay()
   {
-    yield return new WaitForSeconds(1);
+    yield return new WaitForSeconds(.5f);
     controlsPanel.SetActive(true);
   }
 
