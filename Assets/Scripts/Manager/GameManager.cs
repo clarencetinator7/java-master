@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using TMPro;
 public class GameManager : MonoBehaviour
 {
 
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
   public int totalDataStation = 0;
   public int totalDataStationAnswered = 0;
   public int correctAnswerCount = 0;
+  public TextMeshProUGUI dataStationText;
 
 
 
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
   void Start()
   {
     // SpawnPlayer();
+    dataStationText.text = totalDataStation.ToString();
   }
   public void setSpawnPoint(Transform spawnPointPos)
   {
@@ -142,5 +145,33 @@ public class GameManager : MonoBehaviour
     // Move to Next Level Logic here
     Debug.Log("Level End");
   }
+
+  #region  Data Station
+
+  public void addDataStation()
+  {
+    totalDataStation++;
+    dataStationText.text = totalDataStation.ToString();
+  }
+
+  public void updateActiveDataStation()
+  {
+    int activeDataStation = totalDataStation - totalDataStationAnswered;
+    dataStationText.text = activeDataStation.ToString();
+  }
+
+  public void addDataStationAnswered()
+  {
+    totalDataStationAnswered++;
+    updateActiveDataStation();
+    // dataStationText.text = totalDataStation.ToString();
+  }
+
+  public void addCorrectAnswer()
+  {
+    correctAnswerCount++;
+  }
+
+  #endregion
 
 }

@@ -14,7 +14,7 @@ public class Interaction : MonoBehaviour, IInteractable
 
   public void Start()
   {
-    GameManager.instance.totalDataStation++;
+    GameManager.instance.addDataStation();
     if (animator == null)
     {
       animator = GetComponent<Animator>();

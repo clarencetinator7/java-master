@@ -71,13 +71,6 @@ public class QuestionManager : MonoBehaviour
     currentStation = quizStation;
     currentStationAttempts = currentStation.GetComponent<Interaction>().attempts;
 
-    // if (currentStationAttempts >= 3)
-    // {
-    //   Debug.Log("No more attempts");
-    //   currentStation.GetComponent<Interaction>().closeStation();
-    //   return;
-    // }
-
     GameManager.instance.switchActionMap("disable");
     UIManager.instance.hideControlPanel();
 
@@ -108,7 +101,7 @@ public class QuestionManager : MonoBehaviour
       // Play close animation
       currentStation.GetComponent<Interaction>().closeStation();
       // Count as completed
-      GameManager.instance.totalDataStationAnswered++;
+      GameManager.instance.addDataStationAnswered();
       // Count as correct answer
       GameManager.instance.correctAnswerCount++;
       currentStation.GetComponent<Interaction>().attempts++;
@@ -156,7 +149,8 @@ public class QuestionManager : MonoBehaviour
     if (currentStationAttempts >= 3)
     {
       currentStation.GetComponent<Interaction>().closeStation();
-      GameManager.instance.totalDataStationAnswered++;
+      GameManager.instance.addDataStationAnswered();
+      // ClosePanel();
       return;
     }
     // ClosePanel();
