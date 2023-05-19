@@ -7,6 +7,7 @@ public class QuestionSO : ScriptableObject
 {
 
   public string questionName;
+  [TextArea(5, 10)]
   public string questionText;
   public string[] answerChoices;
   public int correctAnswerIndex;

@@ -36,11 +36,11 @@ public class UIManager : MonoBehaviour
     }
   }
 
-  public void readData(string data, GameObject chipInstance)
+  public void readData(DatachipsSO dataChip, GameObject chipInstance)
   {
     // Select the text from the child of dataPanel
     // dataPanel.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = data;
-    dataText.text = data;
+    dataText.text = dataChip.datachipText;
     dataPanel.SetActive(true);
     Destroy(chipInstance);
   }

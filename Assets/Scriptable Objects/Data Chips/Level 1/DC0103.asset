@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db08f6fbbd2bcec40a8295a784a247af, type: 3}
+  m_Name: DC0103
+  m_EditorClassIdentifier: 
+  datachipName: 
+  datachipText: "Java is:\n\nObject Oriented: In Java, everything is an Object. Java
+    can be easily extended since it is based on the Object model. \r\n\nPlatform
+    Independent: Unlike many other programming languages including C and C++, when
+    Java is compiled, it is not compiled into platform specific machine, rather into
+    platform independent byte code. This byte code is distributed over the web and
+    interpreted by the Virtual Machine (JVM) on whichever platform it is being run
+    on. \r\n"
+  relatedQuestion: []

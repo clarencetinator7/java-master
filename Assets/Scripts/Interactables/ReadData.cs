@@ -5,50 +5,21 @@ using UnityEngine;
 public class ReadData : MonoBehaviour, IInteractable
 {
 
-  [SerializeField] string chipData = "This chip has no data.";
-
-  // [SerializeField] GameObject dataPanel;
+  [SerializeField] DatachipsSO datachip;
 
   public void Start()
   {
-    if (chipData.Trim() == "")
+    if (datachip == null)
     {
-      chipData = "This chip has no data: " + gameObject.name;
+      Debug.Log(gameObject.name + " is null");
     }
   }
 
   public void Interact(GameObject interactor)
   {
     Debug.Log("Interacting with " + gameObject.name);
-    // Read data from chip
-    // readData(chipData);
-
-    UIManager.instance.readData(chipData, gameObject);
+    UIManager.instance.readData(datachip, gameObject);
 
   }
-
-  // public void readData(string data)
-  // {
-  //   // Select the text from the child of dataPanel
-  //   dataPanel.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = data;
-  //   dataPanel.SetActive(true);
-
-  //   // Hide data panel after 5 seconds
-  //   StartCoroutine(HideDataPanel());
-
-  // }
-
-  // // Data panel coroutine will hide after 5 seconds
-  // IEnumerator HideDataPanel()
-  // {
-  //   // STOP PLAYER MOVEMENT WHILE PANEL IS SHOWN  
-  //   pController.switchActMap("disable");
-  //   yield return new WaitForSeconds(5);
-  //   dataPanel.SetActive(false);
-  //   // Enable player movement
-  //   pController.switchActMap("enable");
-  //   // Destroy this gameObject
-  //   Destroy(gameObject);
-  // }
 
 }
