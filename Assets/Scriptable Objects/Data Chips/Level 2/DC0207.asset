@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db08f6fbbd2bcec40a8295a784a247af, type: 3}
+  m_Name: DC0207
+  m_EditorClassIdentifier: 
+  datachipName: DC0207
+  datachipText: "Multi-line Comments\r\n\nMulti-line comments start with /* and ends
+    with */.\r\n\nAny text between /* and */ will be ignored by Java.\r\n\n/*  This
+    is a \r\nMulti-line Comment */\r\n"
+  relatedQuestion: []
