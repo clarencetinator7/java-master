@@ -15,7 +15,7 @@ MonoBehaviour:
   datachipName: 
   datachipText: "Identifiers must adhere to specific rules. They can consist of alphanumeric
     characters [a-z] [A-Z] [0-9], dollar sign ($), and underscore (_). No other characters
-    are allowed.\r\n\nValid Example:\r\n$Wink1NTomBoy\nThis is valid as characters
-    are alphanumerics, and $\r\n\nInvalid Example:\r\nwiseWizard#1994\nThis is invalid
-    as # character is not allowed\r"
+    are allowed.\r\n\nValid Example:\r\n$My1Var\nThis is valid as characters are
+    alphanumerics, and $\r\n\nInvalid Example:\r\nmY#1Var\nThis is invalid as # character
+    is not allowed\r"
   relatedQuestion: []

@@ -15,7 +15,7 @@ MonoBehaviour:
   questionName: 
   questionText: Which special character is not allowed in Java identifiers?
   answerChoices:
-  - _
-  - '&'
-  - $
+  - underscore
+  - 'ampersand '
+  - dollar sign
   correctAnswerIndex: 1
