@@ -7,6 +7,7 @@ public class LevelEnd : MonoBehaviour
 
   bool isGoingToNextLevel = false;
   [SerializeField] float levelEndDelay = 5f;
+  [SerializeField] string nextLevelName = "Main Menu";
   void OnTriggerEnter2D(Collider2D other)
   {
     if (other.CompareTag("Player") && !isGoingToNextLevel)
@@ -28,12 +29,18 @@ public class LevelEnd : MonoBehaviour
         Debug.Log("Not all data stations answered");
       }
 
+
+      // FOR TESTING PURPOSES
+      // isGoingToNextLevel = true;
+      // StartCoroutine(levelEnd());
+
     }
   }
 
   IEnumerator levelEnd()
   {
+    // TODO: SHOW LEVEL END UI AND SCORE
     yield return new WaitForSeconds(levelEndDelay);
-    GameManager.instance.levelEnd();
+    GameManager.instance.levelEnd(nextLevelName);
   }
 }
