@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
   [SerializeField] GameObject dataPanel;
   [SerializeField] TextMeshProUGUI dataText;
   [SerializeField] GameObject controlsPanel;
+  [SerializeField] GameObject mainMenuPanel;
 
   void Awake()
   {
@@ -45,6 +46,7 @@ public class UIManager : MonoBehaviour
     Destroy(chipInstance);
   }
 
+  #region Control Panel
   public void hideDataPanel()
   {
     dataPanel.SetActive(false);
@@ -76,6 +78,15 @@ public class UIManager : MonoBehaviour
   {
     yield return new WaitForSeconds(1);
     controlsPanel.SetActive(false);
+  }
+  #endregion
+
+  public void onStartGameClickHandler()
+  {
+    Debug.Log("Start Game Clicked");
+    GameManager.instance.StartGame();
+    mainMenuPanel.SetActive(false);
+    showControlPanel();
   }
 
 }

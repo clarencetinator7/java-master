@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class UICanvas : MonoBehaviour
 {
-  // Start is called before the first frame update
-  void Start()
+  public static UICanvas instance; // Start is called before the first frame update
+  void Awake()
   {
-    DontDestroyOnLoad(gameObject);
+    MakeSingleton();
+  }
+
+  void MakeSingleton()
+  {
+    if (instance != null)
+    {
+      Destroy(gameObject);
+    }
+    else
+    {
+      instance = this;
+      DontDestroyOnLoad(gameObject);
+    }
   }
 
 }
