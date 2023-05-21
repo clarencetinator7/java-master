@@ -59828,6 +59828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelEndFlag
       objectReference: {fileID: 0}
+    - target: {fileID: 1015569148356923814, guid: 56d33866a1fba854987f4543231f31aa, type: 3}
+      propertyPath: nextLevelName
+      value: Level2
+      objectReference: {fileID: 0}
     - target: {fileID: 1015569148356923817, guid: 56d33866a1fba854987f4543231f31aa, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -89241,11 +89245,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1259661346528836034, guid: aa83d83259fb24345979d6f51d6116cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.75
+      value: -7.6
       objectReference: {fileID: 0}
     - target: {fileID: 1259661346528836034, guid: aa83d83259fb24345979d6f51d6116cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.56
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 1259661346528836034, guid: aa83d83259fb24345979d6f51d6116cb, type: 3}
       propertyPath: m_LocalPosition.z

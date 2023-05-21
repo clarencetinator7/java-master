@@ -147,10 +147,11 @@ public class GameManager : MonoBehaviour
 
   }
 
-  public void levelEnd()
+  public void levelEnd(string toLevel)
   {
     // Move to Next Level Logic here
     Debug.Log("Level End");
+    SceneManager.LoadScene(toLevel);
   }
 
   #region  Data Station
