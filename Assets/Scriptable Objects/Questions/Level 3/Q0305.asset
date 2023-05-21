@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Q0305
   m_EditorClassIdentifier: 
   questionName: 
-  questionText: What are the rules for the characters allowed in Java identifiers?
+  questionText: Which special character is not allowed in Java identifiers?
   answerChoices:
-  - Alphanumeric characters only
-  - ) Alphanumeric and special characters
-  - Alphanumeric and dollar sign/underscore only
-  correctAnswerIndex: 2
+  - _
+  - '&'
+  - $
+  correctAnswerIndex: 1

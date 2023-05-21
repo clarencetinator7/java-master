@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Q0308
   m_EditorClassIdentifier: 
   questionName: 
-  questionText: Are Java identifiers case-sensitive or case-insensitive?
+  questionText: In Java, what is the case-sensitivity of identifiers?
   answerChoices:
-  - Case-sensitive
-  - Case-insensitive
-  - Case-dependent
+  - Sensitive
+  - Insensitive
+  - Dependent
   correctAnswerIndex: 0

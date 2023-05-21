@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: Q0309
   m_EditorClassIdentifier: 
   questionName: 
-  questionText: What is the recommended size range for Java identifiers, according
-    to standard conventions? Is there an upper limit on identifier length?
+  questionText: There is no upper limit on the length of Java identifiers.
   answerChoices:
-  - 1 - 10 characters, with an upper limit
-  - 4 - 15 characters, with no upper limit
-  - 16 - 20 characters, with an upper limit
-  correctAnswerIndex: 1
+  - True
+  - False
+  - Maybe
+  correctAnswerIndex: 0

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Q0304
   m_EditorClassIdentifier: 
   questionName: 
-  questionText: What is the restriction on using certain words like "null," "true,"
-    and "false" as identifiers in Java?
+  questionText: Is it allowed to use words like "null," "true," and "false" as identifiers
+    in Java?
   answerChoices:
-  - Allowed as identifiers
-  - Restricted as identifiers
-  - Only allowed in comments
+  - Yes
+  - No
+  - Maybe
   correctAnswerIndex: 1

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Q0302
   m_EditorClassIdentifier: 
   questionName: 
-  questionText: What happens if Java identifiers do not follow the creation rules?
+  questionText: What error is shown if Java identifiers do not follow the creation
+    rules?
   answerChoices:
-  - Runtime errors
-  - Compile-time errors
-  - Syntax errors
+  - Runtime
+  - Compile-time
+  - Syntax
   correctAnswerIndex: 1

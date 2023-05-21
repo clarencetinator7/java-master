@@ -17,5 +17,5 @@ MonoBehaviour:
   answerChoices:
   - Yes
   - No
-  - It depends
+  - Maybe
   correctAnswerIndex: 1
