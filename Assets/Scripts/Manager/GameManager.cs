@@ -77,6 +77,13 @@ public class GameManager : MonoBehaviour
     }
   }
 
+  public void StartGame()
+  {
+    Debug.Log("Starting Game ....");
+    SceneManager.LoadScene("Level1");
+
+  }
+
   public void resetLevelData()
   {
     totalDataStation = 0;
