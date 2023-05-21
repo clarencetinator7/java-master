@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db08f6fbbd2bcec40a8295a784a247af, type: 3}
+  m_Name: DC0208
+  m_EditorClassIdentifier: 
+  datachipName: DC0208
+  datachipText: "Java Variables\r\n\nA variable is a place where the program stores
+    data temporarily. As the name implies the value stored in such a location can
+    be changed while a program is executing (compare with constant).\r\n\r\nIn Java,
+    there are different types of variables, for example:\r\n\nString - stores text,
+    such as \"Hello\". String values are surrounded by double quotes\r\n\nint - stores
+    integers (whole numbers), without decimals, such as 123 or -123\r\n\nfloat -
+    stores floating point numbers, with decimals, such as 19.99 or -19.99\r\n\nchar
+    - stores single characters, such as 'a' or 'B'. Char values are surrounded by
+    single quotes\r\n\nboolean - stores values with two states: true or false\r"
+  relatedQuestion: []
