@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: DC0305
   m_EditorClassIdentifier: 
   datachipName: 
-  datachipText: "Identifiers in Java must adhere to specific rules. They can consist
-    of alphanumeric characters [a-z] [A-Z] [0-9], dollar sign ($), and underscore
-    (). No other characters are allowed.\r\n\nValid Example:\r\n$Wink1NTomBoy\nThis
-    is valid as characters are alphanumerics, and $\r\n\nInvalid Example:\r\nwiseWizard#1994\nThis
-    is invalid as # character is not allowed\r"
+  datachipText: "Identifiers must adhere to specific rules. They can consist of alphanumeric
+    characters [a-z] [A-Z] [0-9], dollar sign ($), and underscore (_). No other characters
+    are allowed.\r\n\nValid Example:\r\n$Wink1NTomBoy\nThis is valid as characters
+    are alphanumerics, and $\r\n\nInvalid Example:\r\nwiseWizard#1994\nThis is invalid
+    as # character is not allowed\r"
   relatedQuestion: []

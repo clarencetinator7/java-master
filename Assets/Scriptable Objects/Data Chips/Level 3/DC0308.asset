@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DC0308
   m_EditorClassIdentifier: 
   datachipName: 
-  datachipText: "Java identifiers are case-sensitive.\r\n\nExample:\n\u2018Vendetta\u2019
-    and \u2018vendetta\u2019 are considered as two different identifiers.\r"
+  datachipText: "Java identifiers are case-sensitive.\r\n\nExample:\n\u2018myIdentifier\u2019
+    and \u2018MyIdentifier\u2019 are considered as two different identifiers.\r"
   relatedQuestion: []

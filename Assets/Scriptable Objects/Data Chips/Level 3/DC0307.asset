@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   datachipName: 
   datachipText: "Identifiers should not contain spaces in their name.\r\n\r\nValid
-    Example:\r\nFour_HorseMen$999\r\nThis is valid as characters are alphanumerics,
-    $\r\n\r\nInvalid Example:\r\nFour HorseMen$999\r\nThis is invalid as there is
-    space after Four\r"
+    Example:\r\nmyIdentifier$00\nThis is valid as characters are alphanumerics, $\r\n\r\nInvalid
+    Example:\r\nmy Identifier$00\nThis is invalid as there is space after Four\r"
   relatedQuestion: []

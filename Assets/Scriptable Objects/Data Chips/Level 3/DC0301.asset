@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DC0301
   m_EditorClassIdentifier: 
   datachipName: 
-  datachipText: In Java, identifiers serve as symbolic names used for identification
+  datachipText: Java identifiers serve as symbolic names used for identification
     and can be assigned to various programming elements such as packages, classes,
     interfaces, methods, variables, and more. They enable programmers to refer to
     these items from different parts of the program.

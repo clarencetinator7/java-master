@@ -19,16 +19,16 @@ MonoBehaviour:
 
     Valid Example:
 
-    ScalerAcademy
+    myIdentifier
 
     This
     is valid as the name starts with an alphabet.
 
-    
+
 
     Invalid Example:
 
-    1ScalerAcademy
+    1myIdentifier
 
     This
     is invalid as the name starts with a numeric value 1.
