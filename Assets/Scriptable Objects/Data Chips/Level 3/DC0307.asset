@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db08f6fbbd2bcec40a8295a784a247af, type: 3}
+  m_Name: DC0307
+  m_EditorClassIdentifier: 
+  datachipName: 
+  datachipText: "Identifiers should not contain spaces in their name.\r\n\r\nValid
+    Example:\r\nmyIdentifier$00\nThis is valid as characters are alphanumerics, $\r\n\r\nInvalid
+    Example:\r\nmy Identifier$00\nThis is invalid as there is space after Four\r"
+  relatedQuestion: []
