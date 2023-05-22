@@ -22,6 +22,11 @@ public class UIManager : MonoBehaviour
   [SerializeField] GameObject gameOverPanel;
   [SerializeField] TextMeshProUGUI gameOverScoreText;
 
+  [Header("Notification Panel")]
+  [SerializeField] GameObject notificationPanel;
+  [SerializeField] TextMeshProUGUI notificationText;
+
+
   void Awake()
   {
     MakeSingleton();
@@ -112,6 +117,23 @@ public class UIManager : MonoBehaviour
   public void hideGameOverPanel()
   {
     gameOverPanel.SetActive(false);
+  }
+
+  #endregion
+
+  #region Notification Panel
+
+  public void showNotificationPanel(string notification, float duration)
+  {
+    notificationText.text = notification;
+    StartCoroutine(showNotificationPanelCoroutine(duration));
+  }
+
+  IEnumerator showNotificationPanelCoroutine(float duration)
+  {
+    notificationPanel.SetActive(true);
+    yield return new WaitForSeconds(duration);
+    notificationPanel.SetActive(false);
   }
 
   #endregion

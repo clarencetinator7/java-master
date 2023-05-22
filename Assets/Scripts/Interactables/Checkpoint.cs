@@ -9,6 +9,7 @@ public class Checkpoint : MonoBehaviour, IInteractable
     Debug.Log("Interacting with " + gameObject.name);
     // Set checkpoint
     GameManager.instance.activeCheckpoint = gameObject.transform;
+    UIManager.instance.showNotificationPanel("Checkpoint saved...", 2f);
     Debug.Log("Checkpoint set to " + GameManager.instance.activeCheckpoint);
   }
 

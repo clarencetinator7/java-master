@@ -26,6 +26,7 @@ public class LevelEnd : MonoBehaviour
       else
       {
         Debug.Log("Not all data stations answered");
+        UIManager.instance.showNotificationPanel("Looks like there are still uncleared data stations.", 2f);
       }
 
       // FOR TESTING PURPOSES
@@ -38,6 +39,7 @@ public class LevelEnd : MonoBehaviour
   IEnumerator levelEnd()
   {
     // TODO: SHOW LEVEL END UI AND SCORE
+    UIManager.instance.showNotificationPanel("Level Cleared! Please wait....", 3f);
     yield return new WaitForSeconds(levelEndDelay);
     UIManager.instance.showGameOverPanel();
   }
