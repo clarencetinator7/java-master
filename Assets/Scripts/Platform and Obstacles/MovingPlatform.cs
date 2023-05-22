@@ -20,10 +20,6 @@ public class MovingPlatform : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    Vector2 direction = Vector2.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);
-
-    rb.MovePosition(direction);
-
     // Checks if the platform reached the currentWaypoint
     if (Vector2.Distance(transform.position, currentWaypoint) < 0.1f)
     {
@@ -39,6 +35,12 @@ public class MovingPlatform : MonoBehaviour
       // Set the currentWaypoint to the next waypoint in the array
       currentWaypoint = waypoints[waypointIndex].position;
     }
+  }
+
+  void FixedUpdate()
+  {
+    Vector2 direction = Vector2.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.fixedDeltaTime);
+    rb.MovePosition(direction);
   }
 
   void OnCollisionEnter2D(Collision2D other)
