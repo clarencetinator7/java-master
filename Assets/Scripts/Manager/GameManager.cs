@@ -147,11 +147,18 @@ public class GameManager : MonoBehaviour
 
   }
 
-  public void levelEnd(string toLevel)
+  public void loadLevel(string toLevel)
   {
     // Move to Next Level Logic here
     Debug.Log("Level End");
     SceneManager.LoadScene(toLevel);
+  }
+
+  public void retryLevel()
+  {
+    UIManager.instance.hideGameOverPanel();
+    resetLevelData();
+    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
   }
 
   #region  Data Station

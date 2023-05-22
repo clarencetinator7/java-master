@@ -8,11 +8,19 @@ public class UIManager : MonoBehaviour
 
   public static UIManager instance;
 
-
+  [Header("Data Panel")]
   [SerializeField] GameObject dataPanel;
   [SerializeField] TextMeshProUGUI dataText;
+
+  [Header("Control Panel")]
   [SerializeField] GameObject controlsPanel;
+
+  [Header("Main Menu Panel")]
   [SerializeField] GameObject mainMenuPanel;
+
+  [Header("Game Over Panel")]
+  [SerializeField] GameObject gameOverPanel;
+  [SerializeField] TextMeshProUGUI gameOverScoreText;
 
   void Awake()
   {
@@ -46,12 +54,12 @@ public class UIManager : MonoBehaviour
     Destroy(chipInstance);
   }
 
-  #region Control Panel
   public void hideDataPanel()
   {
     dataPanel.SetActive(false);
   }
 
+  #region Control Panel
   public void showControlPanel()
   {
     StartCoroutine(showControlPanelDelay());
@@ -88,5 +96,24 @@ public class UIManager : MonoBehaviour
     mainMenuPanel.SetActive(false);
     showControlPanel();
   }
+
+  #region Game Over Panel
+
+  public void showGameOverPanel()
+  {
+    string correctAnswerCount = GameManager.instance.correctAnswerCount.ToString();
+    string totalDataStation = GameManager.instance.totalDataStation.ToString();
+
+    gameOverScoreText.text = correctAnswerCount + " of " + totalDataStation + " data stations answered correctly.";
+
+    gameOverPanel.SetActive(true);
+  }
+
+  public void hideGameOverPanel()
+  {
+    gameOverPanel.SetActive(false);
+  }
+
+  #endregion
 
 }
