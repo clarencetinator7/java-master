@@ -71,8 +71,8 @@ public class QuestionManager : MonoBehaviour
     currentStation = quizStation;
     currentStationAttempts = currentStation.GetComponent<Interaction>().attempts;
 
-    GameManager.instance.switchActionMap("disable");
-    UIManager.instance.hideControlPanel();
+    // GameManager.instance.switchActionMap("disable");
+    // UIManager.instance.hideControlPanel();
 
     // Set question text
     questionText.text = question.questionText;
@@ -106,11 +106,12 @@ public class QuestionManager : MonoBehaviour
       GameManager.instance.correctAnswerCount++;
       currentStation.GetComponent<Interaction>().attempts++;
       ClosePanel();
+      UIManager.instance.showNotificationPanel("Data Station Restored....", 3f);
       return;
     }
     else
     {
-      Debug.Log("Wrong!");
+      UIManager.instance.showNotificationPanel("ERROR: Access Denied....", 2f);
       // Count as completed
       // GameManager.instance.totalDataStationAnswered++;
       // TODO: Punish player
@@ -134,8 +135,8 @@ public class QuestionManager : MonoBehaviour
   {
     StopAllCoroutines();
     questionPanel.SetActive(false);
-    UIManager.instance.showControlPanel();
-    GameManager.instance.switchActionMap("enable");
+    // UIManager.instance.showControlPanel();
+    // GameManager.instance.switchActionMap("enable");
     currentQuestion = null;
     currentStation = null;
     currentStationAttempts = 0;
@@ -150,6 +151,7 @@ public class QuestionManager : MonoBehaviour
     {
       currentStation.GetComponent<Interaction>().closeStation();
       GameManager.instance.addDataStationAnswered();
+      UIManager.instance.showNotificationPanel("You got it wrong 3 times.... \n ERROR: Data Station Lockdown Initiated", 3f);
       // ClosePanel();
       return;
     }

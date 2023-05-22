@@ -18,6 +18,8 @@ public class Patrol : MonoBehaviour
   Vector2 currentWaypoint;
 
 
+  Vector2 direction;
+
   // Start is called before the first frame update
   void Start()
   {
@@ -30,10 +32,6 @@ public class Patrol : MonoBehaviour
 
   void Update()
   {
-
-    Vector2 direction = Vector2.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.deltaTime);
-
-    rb.MovePosition(direction);
 
     // Checks if the enemy reached the currentWaypoint
     if (Vector2.Distance(transform.position, currentWaypoint) < 0.1f)
@@ -51,6 +49,16 @@ public class Patrol : MonoBehaviour
       currentWaypoint = waypoints[waypointIndex].position;
     }
 
+
+
+  }
+
+  void FixedUpdate()
+  {
+    direction = Vector2.MoveTowards(transform.position, currentWaypoint, moveSpeed * Time.fixedDeltaTime);
+
+    rb.MovePosition(direction);
+
     // Flip sprite on the direction of movement
     if (direction.x > transform.position.x)
     {
@@ -61,7 +69,7 @@ public class Patrol : MonoBehaviour
       transform.localScale = new Vector3(-1, 1, 1);
     }
 
-
   }
+
 
 }
