@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
 
   public static GameManager instance;
 
-  // Level Info
-  // int currentLevel = 0;
+  [Header("Level Info")]
+  public int currentLevel = 1;
   // int totalLevels = 3;
   public int totalDataStation = 0;
   public int totalDataStationAnswered = 0;
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
 
 
-  // Player Stats
+  [Header("Player Info")]
   // Cognitive Integrity is the player's health
   [HideInInspector]
   public int cognitiveIntegrity = 5;
@@ -147,11 +147,26 @@ public class GameManager : MonoBehaviour
 
   }
 
-  public void levelEnd(string toLevel)
+  public void loadLevel(string toLevel)
   {
     // Move to Next Level Logic here
-    Debug.Log("Level End");
     SceneManager.LoadScene(toLevel);
+  }
+
+  public void retryLevel()
+  {
+    UIManager.instance.hideGameOverPanel();
+    resetLevelData();
+    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+  }
+
+  public void continueToNextLevel()
+  {
+    UIManager.instance.hideGameOverPanel();
+    resetLevelData();
+    currentLevel++;
+    // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    SceneManager.LoadScene("Level" + currentLevel);
   }
 
   #region  Data Station
