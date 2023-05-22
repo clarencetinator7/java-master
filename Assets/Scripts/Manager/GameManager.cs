@@ -122,17 +122,16 @@ public class GameManager : MonoBehaviour
     }
   }
 
-  public void playerDie()
+  public void RespawnPlayer()
   {
-    Destroy(activePlayerInstance);
-    // Play death animation
-    // Play death sound
-    // Play death particle
-    respawnPlayer();
+    StartCoroutine(RespawnCoroutine());
   }
 
-  void respawnPlayer()
+  IEnumerator RespawnCoroutine()
   {
+    Debug.Log("Respawning Player....");
+    yield return new WaitForSeconds(2f);
+    Debug.Log("Player Respawned");
     if (activeCheckpoint != null)
     {
       activePlayerInstance = Instantiate(playerPref, activeCheckpoint.position, Quaternion.identity);
@@ -144,7 +143,6 @@ public class GameManager : MonoBehaviour
 
       GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = activePlayerInstance.transform;
     }
-
   }
 
   public void loadLevel(string toLevel)

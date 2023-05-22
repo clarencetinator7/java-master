@@ -8,8 +8,15 @@ public class Spikes : MonoBehaviour
   {
     if (collision.gameObject.tag == "Player")
     {
-      Debug.Log("Player hit spikes");
-      // TODO: Kill player
+      Player player = collision.gameObject.GetComponent<Player>();
+      // Kill Player
+      if (player != null && !player.isDying)
+      {
+        Debug.Log("Player hit spikes");
+        player.isDying = true;
+        player.GetComponent<Player>().Die();
+      }
     }
   }
+
 }
