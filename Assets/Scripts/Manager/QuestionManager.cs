@@ -71,8 +71,8 @@ public class QuestionManager : MonoBehaviour
     currentStation = quizStation;
     currentStationAttempts = currentStation.GetComponent<Interaction>().attempts;
 
-    GameManager.instance.switchActionMap("disable");
-    UIManager.instance.hideControlPanel();
+    // GameManager.instance.switchActionMap("disable");
+    // UIManager.instance.hideControlPanel();
 
     // Set question text
     questionText.text = question.questionText;
@@ -135,8 +135,8 @@ public class QuestionManager : MonoBehaviour
   {
     StopAllCoroutines();
     questionPanel.SetActive(false);
-    UIManager.instance.showControlPanel();
-    GameManager.instance.switchActionMap("enable");
+    // UIManager.instance.showControlPanel();
+    // GameManager.instance.switchActionMap("enable");
     currentQuestion = null;
     currentStation = null;
     currentStationAttempts = 0;
