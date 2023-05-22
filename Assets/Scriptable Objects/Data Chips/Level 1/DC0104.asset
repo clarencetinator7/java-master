@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db08f6fbbd2bcec40a8295a784a247af, type: 3}
+  m_Name: DC0104
+  m_EditorClassIdentifier: 
+  datachipName: 
+  datachipText: "Simple: Java is designed to be easy to learn. If you understand
+    the basic concept of OOP Java, it would be easy to master. \r\nSecure: With Java's
+    secure feature it enables to develop virus-free, tamper-free systems. Authentication
+    techniques are based on public-key encryption. \r\n\nArchitecture-neutral: Java
+    compiler generates an architecture-neutral object file format, which makes the
+    compiled code executable on many processors, with the presence of Java runtime
+    system. \r\nPortable: Being architecture-neutral and having no implementation
+    dependent aspects of the specification makes Java portable. Compiler in Java
+    is written in ANSI C with a clean portability boundary, which is a POSIX subset.
+    \r\n"
+  relatedQuestion: []

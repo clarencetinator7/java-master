@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db08f6fbbd2bcec40a8295a784a247af, type: 3}
+  m_Name: DC0107
+  m_EditorClassIdentifier: 
+  datachipName: 
+  datachipText: "James Gosling initiated Java language project in June 1991 for use
+    in one of his many settop box projects. The language, initially called \u2018Oak\u2019
+    after an oak tree that stood outside Gosling's office, also went by the name
+    \u2018Green\u2019 and ended up later being renamed as Java, from a list of random
+    words. \r"
+  relatedQuestion: []

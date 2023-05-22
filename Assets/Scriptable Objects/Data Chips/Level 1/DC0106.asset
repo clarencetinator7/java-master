@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db08f6fbbd2bcec40a8295a784a247af, type: 3}
+  m_Name: DC0106
+  m_EditorClassIdentifier: 
+  datachipName: 
+  datachipText: "High Performance: With the use of Just-In-Time compilers, Java enables
+    high performance.\r\nDistributed: Java is designed for the distributed environment
+    of the internet. \r\n\nDynamic: Java is considered to be more dynamic than C
+    or C++ since it is designed to adapt to an evolving environment. Java programs
+    can carry extensive amount of run-time information that can be used to verify
+    and resolve accesses to objects on run-time. \r\n"
+  relatedQuestion: []
