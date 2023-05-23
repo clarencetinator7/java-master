@@ -216,6 +216,7 @@ MonoBehaviour:
   kbForce: 5
   jumpSound: {fileID: 8300000, guid: 890348a1433a9a0439f9369db8851330, type: 3}
   hurtSound: {fileID: 8300000, guid: 058f3cb32f8447a408ce2047692d655b, type: 3}
+  hurtParticle: {fileID: 6992394352234344701, guid: 0d324c91ca8541b478794924cfceaf15, type: 3}
 --- !u!114 &756412986545983540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +260,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDying: 0
-  dieSound: {fileID: 8300000, guid: ead14aafa8eadd44791819e94d61cbea, type: 3}
+  deathParticle: {fileID: 3421817463102592380, guid: e4147ee760a13324db7ecdd91ced290d, type: 3}
+  dieSound: {fileID: 8300000, guid: 3d145a847ee0c8541a536c58186ce8c5, type: 3}
 --- !u!1 &756412987244814017
 GameObject:
   m_ObjectHideFlags: 0

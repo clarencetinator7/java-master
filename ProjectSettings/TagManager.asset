@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Obstacles
   - SpawnPoint
+  - VirtualCamera
   layers:
   - Default
   - TransparentFX

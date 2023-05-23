@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
 
   public bool isDying = false;
 
+  [Header("Particles")]
+  [SerializeField] GameObject deathParticle;
+
   [Header("Audio")]
   [SerializeField] AudioClip dieSound;
 
@@ -22,6 +25,10 @@ public class Player : MonoBehaviour
     // Play die sound effect
     SoundManager.instance.playSound(dieSound);
     // Play particle effect
+    GameObject particle = Instantiate(deathParticle, transform.position, Quaternion.identity);
+    Destroy(particle, 2f);
+    // Camera Shake
+    Resource.instance.ShakeCamera(3f, .5f);
     GameManager.instance.RespawnPlayer();
     Destroy(gameObject);
   }

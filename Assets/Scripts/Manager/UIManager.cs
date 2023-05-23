@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class UIManager : MonoBehaviour
@@ -179,5 +180,11 @@ public class UIManager : MonoBehaviour
   {
     SoundManager.instance.playSound(tapSound);
   }
+
+  public void showMainMenuPanel()
+  {
+    mainMenuPanel.SetActive(true);
+  }
+
 
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LevelEnd : MonoBehaviour
 {
@@ -37,6 +38,18 @@ public class LevelEnd : MonoBehaviour
       // isGoingToNextLevel = true;
       // StartCoroutine(levelEnd());
 
+    }
+  }
+
+  void Update()
+  {
+    if (Keyboard.current.spaceKey.wasPressedThisFrame)
+    {
+      if (!isGoingToNextLevel)
+      {
+        isGoingToNextLevel = true;
+        StartCoroutine(levelEnd());
+      }
     }
   }
 

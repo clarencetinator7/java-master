@@ -115,6 +115,7 @@ public class GameManager : MonoBehaviour
     activePlayerInstance = Instantiate(playerPref, playerSpawnPoint.position, Quaternion.identity);
 
     GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = activePlayerInstance.transform;
+    // Resource.instance.setCameraFollow(activePlayerInstance);
   }
 
   public void switchActionMap(string mode)
@@ -142,13 +143,15 @@ public class GameManager : MonoBehaviour
     if (activeCheckpoint != null)
     {
       activePlayerInstance = Instantiate(playerPref, activeCheckpoint.position, Quaternion.identity);
-      GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = activePlayerInstance.transform;
+      // GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = activePlayerInstance.transform;
+      Resource.instance.setCameraFollow(activePlayerInstance);
     }
     else
     {
       activePlayerInstance = Instantiate(playerPref, playerSpawnPoint.position, Quaternion.identity);
 
-      GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = activePlayerInstance.transform;
+      // GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = activePlayerInstance.transform;
+      Resource.instance.setCameraFollow(activePlayerInstance);
     }
   }
 
@@ -169,9 +172,20 @@ public class GameManager : MonoBehaviour
   {
     UIManager.instance.hideGameOverPanel();
     resetLevelData();
-    currentLevel++;
-    // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    SceneManager.LoadScene("Level" + currentLevel);
+    if (currentLevel == 3)
+    {
+      // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+      UIManager.instance.hideControlPanel();
+      Destroy(activePlayerInstance);
+      SceneManager.LoadScene("EndGame");
+    }
+    else
+    {
+      currentLevel++;
+      // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+      SceneManager.LoadScene("Level" + currentLevel);
+    }
+
   }
 
   public void backToMainMenu()
