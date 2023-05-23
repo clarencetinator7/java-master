@@ -10472,9 +10472,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1132335365}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: playTapSound
+      - m_Target: {fileID: 840663748}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

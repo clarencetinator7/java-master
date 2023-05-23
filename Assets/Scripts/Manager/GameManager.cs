@@ -223,4 +223,8 @@ public class GameManager : MonoBehaviour
 
   #endregion
 
+  public void ExitGame()
+  {
+    Application.Quit();
+  }
 }

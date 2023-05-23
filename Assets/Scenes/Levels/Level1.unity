@@ -59315,7 +59315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1895750802447715162, guid: 8112b89edb46bd443b615fb67574eb1a, type: 3}
       propertyPath: isTriggered
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1895750802447715162, guid: 8112b89edb46bd443b615fb67574eb1a, type: 3}
       propertyPath: tutorialText
@@ -61041,9 +61041,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1537063749}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: playTapSound
+      - m_Target: {fileID: 1811974980}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -107975,7 +107975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1895750802447715162, guid: 8112b89edb46bd443b615fb67574eb1a, type: 3}
       propertyPath: isTriggered
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1895750802447715162, guid: 8112b89edb46bd443b615fb67574eb1a, type: 3}
       propertyPath: tutorialText
@@ -112458,7 +112458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1895750802447715162, guid: 8112b89edb46bd443b615fb67574eb1a, type: 3}
       propertyPath: isTriggered
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1895750802447715162, guid: 8112b89edb46bd443b615fb67574eb1a, type: 3}
       propertyPath: tutorialText
