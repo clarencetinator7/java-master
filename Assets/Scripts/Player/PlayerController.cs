@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour
   [SerializeField] AudioClip jumpSound;
   [SerializeField] AudioClip hurtSound;
 
+  [Header("Particles")]
+  [SerializeField] GameObject hurtParticle;
+
   public Collider2D Collider { get => boxCollider; set => boxCollider = value; }
 
   private void Awake()
@@ -154,6 +157,10 @@ public class PlayerController : MonoBehaviour
     animator.SetBool("isHurt", isHurt);
     // Play hurt sound
     SoundManager.instance.playSound(hurtSound);
+
+    // Spawn hurt particle
+    GameObject particle = Instantiate(hurtParticle, transform.position, Quaternion.identity);
+    Destroy(particle, 1f);
     // Reduce life
     GameManager.instance.ReduceLife();
     // Get direction from sender to player
