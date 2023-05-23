@@ -29,6 +29,9 @@ public class UIManager : MonoBehaviour
   [Header("Pause Menu Panel")]
   [SerializeField] GameObject pauseMenuPanel;
 
+  [Header("Miscs")]
+  [SerializeField] AudioClip tapSound;
+
   void Awake()
   {
     MakeSingleton();
@@ -171,5 +174,10 @@ public class UIManager : MonoBehaviour
   }
 
   #endregion
+
+  public void playTapSound()
+  {
+    SoundManager.instance.playSound(tapSound);
+  }
 
 }
