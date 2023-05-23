@@ -41,6 +41,7 @@ public class JumpPad : MonoBehaviour
     if (playerRb != null)
     {
       SoundManager.instance.playSound(jumpSound);
+      Resource.instance.ShakeCamera(3f, .3f);
       playerRb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
   }

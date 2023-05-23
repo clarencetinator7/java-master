@@ -114,7 +114,8 @@ public class GameManager : MonoBehaviour
   {
     activePlayerInstance = Instantiate(playerPref, playerSpawnPoint.position, Quaternion.identity);
 
-    GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = activePlayerInstance.transform;
+    // GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = activePlayerInstance.transform;
+    Resource.instance.setCameraFollow(activePlayerInstance);
   }
 
   public void switchActionMap(string mode)
@@ -142,13 +143,15 @@ public class GameManager : MonoBehaviour
     if (activeCheckpoint != null)
     {
       activePlayerInstance = Instantiate(playerPref, activeCheckpoint.position, Quaternion.identity);
-      GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = activePlayerInstance.transform;
+      // GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = activePlayerInstance.transform;
+      Resource.instance.setCameraFollow(activePlayerInstance);
     }
     else
     {
       activePlayerInstance = Instantiate(playerPref, playerSpawnPoint.position, Quaternion.identity);
 
-      GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = activePlayerInstance.transform;
+      // GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = activePlayerInstance.transform;
+      Resource.instance.setCameraFollow(activePlayerInstance);
     }
   }
 

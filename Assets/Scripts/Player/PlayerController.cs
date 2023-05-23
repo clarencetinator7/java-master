@@ -160,6 +160,10 @@ public class PlayerController : MonoBehaviour
 
     // Spawn hurt particle
     GameObject particle = Instantiate(hurtParticle, transform.position, Quaternion.identity);
+
+    // Camera Shake
+    Resource.instance.ShakeCamera(2.5f, 0.2f);
+
     Destroy(particle, 1f);
     // Reduce life
     GameManager.instance.ReduceLife();

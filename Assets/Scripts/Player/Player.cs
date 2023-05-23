@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     // Play particle effect
     GameObject particle = Instantiate(deathParticle, transform.position, Quaternion.identity);
     Destroy(particle, 2f);
+    // Camera Shake
+    Resource.instance.ShakeCamera(3f, .5f);
     GameManager.instance.RespawnPlayer();
     Destroy(gameObject);
   }

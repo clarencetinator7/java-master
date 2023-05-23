@@ -1023,7 +1023,7 @@ GameObject:
   - component: {fileID: 126874538}
   m_Layer: 0
   m_Name: CM vcam1
-  m_TagString: Untagged
+  m_TagString: VirtualCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11554,6 +11554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4a96b446a121f4d98a9d7efb0cabe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 126874538}
 --- !u!4 &619109774
 Transform:
   m_ObjectHideFlags: 0
@@ -13428,8 +13429,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1033349333}
   - component: {fileID: 1033349336}
-  - component: {fileID: 1033349335}
-  - component: {fileID: 1033349334}
+  - component: {fileID: 1033349337}
+  - component: {fileID: 1033349338}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -13452,7 +13453,36 @@ Transform:
   m_Father: {fileID: 126874537}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1033349334
+--- !u!114 &1033349336
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033349332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1033349337
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033349332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 1
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!114 &1033349338
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13474,45 +13504,6 @@ MonoBehaviour:
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
---- !u!114 &1033349335
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1033349332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
-  m_LookaheadTime: 0
-  m_LookaheadSmoothing: 0
-  m_LookaheadIgnoreY: 0
-  m_HorizontalDamping: 0.5
-  m_VerticalDamping: 0.5
-  m_ScreenX: 0.5
-  m_ScreenY: 0.5
-  m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
-  m_BiasX: 0
-  m_BiasY: 0
-  m_CenterOnActivate: 1
---- !u!114 &1033349336
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1033349332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1039485764
 GameObject:
   m_ObjectHideFlags: 0
@@ -13701,7 +13692,7 @@ MonoBehaviour:
   controlsPanel: {fileID: 1395064443}
   mainMenuPanel: {fileID: 1439590183}
   gameOverPanel: {fileID: 2130405545}
-  gameOverScoreText: {fileID: 1823307764}
+  gameOverScoreText: {fileID: 1866385751}
   notificationPanel: {fileID: 155740559}
   notificationText: {fileID: 1183359761}
   pauseMenuPanel: {fileID: 658111883}
