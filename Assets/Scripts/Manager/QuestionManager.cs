@@ -44,6 +44,11 @@ public class QuestionManager : MonoBehaviour
 
   PlayerController pController;
 
+  [Header("Audio")]
+  [SerializeField] AudioClip correctSound;
+  [SerializeField] AudioClip incorrectSound;
+  [SerializeField] AudioClip closeSound;
+
   private void Awake()
   {
     MakeSingleton();
@@ -105,6 +110,8 @@ public class QuestionManager : MonoBehaviour
       // Count as correct answer
       GameManager.instance.correctAnswerCount++;
       currentStation.GetComponent<Interaction>().attempts++;
+      // Play correct sound
+      SoundManager.instance.playSound(correctSound);
       ClosePanel();
       UIManager.instance.showNotificationPanel("Data Station Restored....", 3f);
       return;
@@ -115,6 +122,8 @@ public class QuestionManager : MonoBehaviour
       // Count as completed
       // GameManager.instance.totalDataStationAnswered++;
       // TODO: Punish player
+      // Play incorrect sound
+      SoundManager.instance.playSound(incorrectSound);
     }
     //STOP ALL COROUTINES
     increaseAttempts();
@@ -153,6 +162,8 @@ public class QuestionManager : MonoBehaviour
       GameManager.instance.addDataStationAnswered();
       UIManager.instance.showNotificationPanel("You got it wrong 3 times.... \n ERROR: Data Station Lockdown Initiated", 3f);
       // ClosePanel();
+      // Play fail
+      SoundManager.instance.playSound(closeSound);
       return;
     }
     // ClosePanel();

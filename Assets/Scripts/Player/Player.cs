@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
 
   public bool isDying = false;
 
+  [Header("Audio")]
+  [SerializeField] AudioClip dieSound;
+
   private void Start()
   {
     GameManager.instance.activePlayerInstance = gameObject;
@@ -17,6 +20,7 @@ public class Player : MonoBehaviour
   {
     Debug.Log("Player died");
     // Play die sound effect
+    SoundManager.instance.playSound(dieSound);
     // Play particle effect
     GameManager.instance.RespawnPlayer();
     Destroy(gameObject);

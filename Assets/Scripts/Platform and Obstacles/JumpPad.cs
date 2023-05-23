@@ -9,6 +9,9 @@ public class JumpPad : MonoBehaviour
   Rigidbody2D playerRb;
   Animator animator;
 
+  [Header("Audio")]
+  [SerializeField] AudioClip jumpSound;
+
   void Awake()
   {
     animator = GetComponent<Animator>();
@@ -37,6 +40,7 @@ public class JumpPad : MonoBehaviour
   {
     if (playerRb != null)
     {
+      SoundManager.instance.playSound(jumpSound);
       playerRb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
   }

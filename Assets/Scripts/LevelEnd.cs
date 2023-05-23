@@ -7,6 +7,10 @@ public class LevelEnd : MonoBehaviour
 
   bool isGoingToNextLevel = false;
   [SerializeField] float levelEndDelay = 2f;
+
+  [Header("Audio")]
+  [SerializeField] AudioClip levelEndSound;
+
   void OnTriggerEnter2D(Collider2D other)
   {
     if (other.CompareTag("Player") && !isGoingToNextLevel)
@@ -40,6 +44,7 @@ public class LevelEnd : MonoBehaviour
   {
     // TODO: SHOW LEVEL END UI AND SCORE
     UIManager.instance.showNotificationPanel("Level Cleared! Please wait....", 3f);
+    SoundManager.instance.playSound(levelEndSound);
     yield return new WaitForSeconds(levelEndDelay);
     UIManager.instance.showGameOverPanel();
   }
