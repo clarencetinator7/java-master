@@ -617,9 +617,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: retryLevel
+      - m_Target: {fileID: 571364143}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: retryGameHandler
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -59444,12 +59444,13 @@ MonoBehaviour:
   totalDataStation: 0
   totalDataStationAnswered: 0
   correctAnswerCount: 0
-  dataStationText: {fileID: 0}
+  dataStationText: {fileID: 407225915}
   cognitiveIntegrity: 5
   chipsCollected: 0
   playerPref: {fileID: 756412986545983531, guid: 249c32c263d04ad44abdca2449159d8c, type: 3}
   activePlayerInstance: {fileID: 0}
   activeCheckpoint: {fileID: 0}
+  isHome: 0
 --- !u!1 &443855758
 GameObject:
   m_ObjectHideFlags: 0
@@ -59605,7 +59606,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1666053728}
         m_TargetAssemblyTypeName: QuestionManager, Assembly-CSharp
         m_MethodName: AnswerQuestion
         m_Mode: 3
@@ -59738,7 +59739,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 454491571}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 571364143}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: retryGameHandler
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &454491571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61040,14 +61053,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18bb031aace1d454d88c3486b4d52063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataPanel: {fileID: 0}
-  dataText: {fileID: 0}
-  controlsPanel: {fileID: 0}
-  mainMenuPanel: {fileID: 0}
-  gameOverPanel: {fileID: 0}
-  gameOverScoreText: {fileID: 0}
-  notificationPanel: {fileID: 0}
-  notificationText: {fileID: 0}
+  dataPanel: {fileID: 1505245895}
+  dataText: {fileID: 2045775470}
+  controlsPanel: {fileID: 1827504482}
+  mainMenuPanel: {fileID: 962686174}
+  gameOverPanel: {fileID: 347702268}
+  gameOverScoreText: {fileID: 789670097}
+  notificationPanel: {fileID: 2019325506}
+  notificationText: {fileID: 1521477322}
+  pauseMenuPanel: {fileID: 1418778602}
 --- !u!4 &571364144
 Transform:
   m_ObjectHideFlags: 0
@@ -104976,7 +104990,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 416803863}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: continueToNextLevel
         m_Mode: 1
@@ -105507,6 +105521,7 @@ GameObject:
   - component: {fileID: 1009085907}
   - component: {fileID: 1009085909}
   - component: {fileID: 1009085908}
+  - component: {fileID: 1009085910}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -105572,6 +105587,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009085906}
   m_CullTransparentMesh: 1
+--- !u!114 &1009085910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009085906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1009085908}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 571364143}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: onPauseGameHandler
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1009539164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -106445,7 +106516,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1231520154}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 571364143}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: backToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1231520154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107637,7 +107720,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1398382253}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 571364143}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: onResumeGameHandler
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1398382253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108625,7 +108720,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1666053728}
         m_TargetAssemblyTypeName: QuestionManager, Assembly-CSharp
         m_MethodName: AnswerQuestion
         m_Mode: 3
@@ -109172,7 +109267,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 571364143}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: hideDataPanel
         m_Mode: 1
@@ -112582,7 +112677,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1666053728}
         m_TargetAssemblyTypeName: QuestionManager, Assembly-CSharp
         m_MethodName: AnswerQuestion
         m_Mode: 3
@@ -113368,7 +113463,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 571364143}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: onStartGameClickHandler
         m_Mode: 1

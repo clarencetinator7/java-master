@@ -33,14 +33,21 @@ public class GameManager : MonoBehaviour
   Transform playerSpawnPoint;
   public Transform activeCheckpoint;
 
+  public bool isHome = true;
+
   void Awake()
   {
     MakeSingleton();
-    playerSpawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
-    if (playerSpawnPoint != null)
+
+    if (!isHome)
     {
-      Debug.Log("Player Spawn Found");
+      playerSpawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
+      if (playerSpawnPoint != null)
+      {
+        Debug.Log("Player Spawn Found");
+      }
     }
+
   }
 
   void Start()
@@ -80,8 +87,8 @@ public class GameManager : MonoBehaviour
   public void StartGame()
   {
     Debug.Log("Starting Game ....");
-    SceneManager.LoadScene("Level1");
-
+    isHome = false;
+    SceneManager.LoadScene("Level" + currentLevel);
   }
 
   public void resetLevelData()
@@ -165,6 +172,13 @@ public class GameManager : MonoBehaviour
     currentLevel++;
     // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     SceneManager.LoadScene("Level" + currentLevel);
+  }
+
+  public void backToMainMenu()
+  {
+    Destroy(activePlayerInstance);
+    isHome = true;
+    SceneManager.LoadScene("Main Menu");
   }
 
   #region  Data Station
