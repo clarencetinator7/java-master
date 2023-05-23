@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelEndDelay: 5
+  levelEndSound: {fileID: 8300000, guid: a2d9d5ba00b70c34483daf8c64fc8121, type: 3}

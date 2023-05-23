@@ -30,6 +30,10 @@ public class PlayerController : MonoBehaviour
   InputAction jump;
   InputAction interact;
 
+  [Header("Audio")]
+  [SerializeField] AudioClip jumpSound;
+  [SerializeField] AudioClip hurtSound;
+
   public Collider2D Collider { get => boxCollider; set => boxCollider = value; }
 
   private void Awake()
@@ -107,6 +111,8 @@ public class PlayerController : MonoBehaviour
       {
         jumpRequest = true;
         betterJumpScript.isStillJumping = true;
+        // Play sound
+        SoundManager.instance.playSound(jumpSound);
       }
     }
     else if (ctx.phase == InputActionPhase.Canceled)
@@ -146,6 +152,8 @@ public class PlayerController : MonoBehaviour
   {
     isHurt = true;
     animator.SetBool("isHurt", isHurt);
+    // Play hurt sound
+    SoundManager.instance.playSound(hurtSound);
     // Reduce life
     GameManager.instance.ReduceLife();
     // Get direction from sender to player

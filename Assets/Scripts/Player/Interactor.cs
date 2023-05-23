@@ -17,6 +17,9 @@ public class Interactor : MonoBehaviour
   // Stats
   [SerializeField] float interactionRadius = 1f;
 
+  [Header("Audio")]
+  [SerializeField] AudioClip interactSound;
+
   public void Interact()
   {
     Collider2D[] colliders = Physics2D.OverlapCircleAll(interactionPoint.position, interactionRadius);
@@ -32,6 +35,8 @@ public class Interactor : MonoBehaviour
       // }
       if (collider.CompareTag("Interactable"))
       {
+        // Play interact sound
+        SoundManager.instance.playSound(interactSound);
         // GetComponent<PlayerController>().switchActMap("disable");
         collider.GetComponent<IInteractable>().Interact(gameObject);
       }

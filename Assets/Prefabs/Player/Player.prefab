@@ -214,6 +214,8 @@ MonoBehaviour:
   jumpForce: 7
   isHurt: 0
   kbForce: 5
+  jumpSound: {fileID: 8300000, guid: 890348a1433a9a0439f9369db8851330, type: 3}
+  hurtSound: {fileID: 8300000, guid: 058f3cb32f8447a408ce2047692d655b, type: 3}
 --- !u!114 &756412986545983540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionPoint: {fileID: 756412987557010734}
   interactionRadius: 1
+  interactSound: {fileID: 8300000, guid: e8915bddb11666544993b0a240a5f10f, type: 3}
 --- !u!114 &756412986545983539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDying: 0
+  dieSound: {fileID: 8300000, guid: ead14aafa8eadd44791819e94d61cbea, type: 3}
 --- !u!1 &756412987244814017
 GameObject:
   m_ObjectHideFlags: 0
