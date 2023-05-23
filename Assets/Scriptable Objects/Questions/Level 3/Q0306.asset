@@ -17,5 +17,5 @@ MonoBehaviour:
   answerChoices:
   - 99myName
   - $MyName0
-  - _ myName0
+  - ' myName0'
   correctAnswerIndex: 0
