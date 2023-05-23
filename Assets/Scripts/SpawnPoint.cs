@@ -14,8 +14,8 @@ public class SpawnPoint : MonoBehaviour
     if (playerInstance != null)
     {
       playerInstance.transform.position = gameObject.transform.position;
-      // GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = playerInstance.transform;
-      Resource.instance.setCameraFollow(playerInstance);
+      GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = playerInstance.transform;
+      // Resource.instance.setCameraFollow(playerInstance);
     }
     else
     {
