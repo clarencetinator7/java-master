@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using TMPro;
+using EasyTransition;
 public class GameManager : MonoBehaviour
 {
 
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
   public Transform activeCheckpoint;
 
   public bool isHome = true;
+  public EasyTransition.TransitionManager transitionManager;
 
   void Awake()
   {
@@ -153,12 +155,6 @@ public class GameManager : MonoBehaviour
       // GameObject.Find("CM vcam1").GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = activePlayerInstance.transform;
       Resource.instance.setCameraFollow(activePlayerInstance);
     }
-  }
-
-  public void loadLevel(string toLevel)
-  {
-    // Move to Next Level Logic here
-    SceneManager.LoadScene(toLevel);
   }
 
   public void retryLevel()

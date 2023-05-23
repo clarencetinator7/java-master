@@ -103,9 +103,17 @@ public class UIManager : MonoBehaviour
   public void onStartGameClickHandler()
   {
     Debug.Log("Start Game Clicked");
+    StartCoroutine(onStartGameCoroutine());
+  }
+
+  IEnumerator onStartGameCoroutine()
+  {
+
     GameManager.instance.StartGame();
+    yield return new WaitForSeconds(1f);
     mainMenuPanel.SetActive(false);
     showControlPanel();
+
   }
 
   #region Game Over Panel
