@@ -26,6 +26,8 @@ public class UIManager : MonoBehaviour
   [SerializeField] GameObject notificationPanel;
   [SerializeField] TextMeshProUGUI notificationText;
 
+  [Header("Pause Menu Panel")]
+  [SerializeField] GameObject pauseMenuPanel;
 
   void Awake()
   {
@@ -134,6 +136,38 @@ public class UIManager : MonoBehaviour
     notificationPanel.SetActive(true);
     yield return new WaitForSeconds(duration);
     notificationPanel.SetActive(false);
+  }
+
+  #endregion
+
+  #region Pause Menu Panel
+
+  public void onPauseGameHandler()
+  {
+    Time.timeScale = 0;
+    pauseMenuPanel.SetActive(true);
+  }
+
+  public void onResumeGameHandler()
+  {
+    Time.timeScale = 1;
+    pauseMenuPanel.SetActive(false);
+  }
+
+  public void backToMainMenu()
+  {
+    Time.timeScale = 1;
+    pauseMenuPanel.SetActive(false);
+    controlsPanel.SetActive(false);
+    GameManager.instance.backToMainMenu();
+    mainMenuPanel.SetActive(true);
+  }
+
+  public void retryGameHandler()
+  {
+    Time.timeScale = 1;
+    pauseMenuPanel.SetActive(false);
+    GameManager.instance.retryLevel();
   }
 
   #endregion
