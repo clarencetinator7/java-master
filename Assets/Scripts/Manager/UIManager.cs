@@ -94,7 +94,7 @@ public class UIManager : MonoBehaviour
 
   IEnumerator hideControlPanelDelay()
   {
-    yield return new WaitForSeconds(1);
+    yield return new WaitForSeconds(.5f);
     controlsPanel.SetActive(false);
   }
   #endregion
